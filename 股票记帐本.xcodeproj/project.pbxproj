@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B466E6D1BA9AE3C00049DDD /* historyTradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */; };
+		1B466E701BA9BF0C00049DDD /* historyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466E6F1BA9BF0C00049DDD /* historyDataModel.m */; };
+		1B6B07751B95F28800A152F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07741B95F28800A152F2 /* main.m */; };
+		1B6B07781B95F28800A152F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07771B95F28800A152F2 /* AppDelegate.m */; };
+		1B6B07811B95F28800A152F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B077F1B95F28800A152F2 /* Main.storyboard */; };
+		1B6B07831B95F28800A152F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B07821B95F28800A152F2 /* Images.xcassets */; };
+		1B6B07861B95F28800A152F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B07841B95F28800A152F2 /* LaunchScreen.xib */; };
+		1B6B07921B95F28800A152F2 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07911B95F28800A152F2 /* _____Tests.m */; };
+		1B6B079D1B95F2FB00A152F2 /* stockTradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B079C1B95F2FB00A152F2 /* stockTradeViewController.m */; };
+		1B6B07A11B95F50500A152F2 /* stockTradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B079F1B95F50500A152F2 /* stockTradeTableViewCell.m */; };
+		1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */; };
+		1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B561B96D3AC004A196D /* addStockViewController.m */; };
+		1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B591B96EE5C004A196D /* stockData.m */; };
+		1BC8FCE21BAAA6580097D520 /* historySellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */; };
+		1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */; };
+		1BE91E7A1B9EC70400656B44 /* sellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE91E791B9EC70400656B44 /* sellStockViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1B6B078C1B95F28800A152F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B6B07671B95F28800A152F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B6B076E1B95F28800A152F2;
+			remoteInfo = "股票记帐本";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B466E6B1BA9AE3C00049DDD /* historyTradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = historyTradeViewController.h; path = "股票记帐本/historyTradeViewController.h"; sourceTree = "<group>"; };
+		1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = historyTradeViewController.m; path = "股票记帐本/historyTradeViewController.m"; sourceTree = "<group>"; };
+		1B466E6E1BA9BF0C00049DDD /* historyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyDataModel.h; sourceTree = "<group>"; };
+		1B466E6F1BA9BF0C00049DDD /* historyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historyDataModel.m; sourceTree = "<group>"; };
+		1B6B076F1B95F28800A152F2 /* 股票记帐本.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "股票记帐本.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B6B07731B95F28800A152F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B6B07741B95F28800A152F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1B6B07761B95F28800A152F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1B6B07771B95F28800A152F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1B6B07801B95F28800A152F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1B6B07821B95F28800A152F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1B6B07851B95F28800A152F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1B6B078B1B95F28800A152F2 /* 股票记帐本Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "股票记帐本Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B6B07901B95F28800A152F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B6B07911B95F28800A152F2 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
+		1B6B079B1B95F2FB00A152F2 /* stockTradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stockTradeViewController.h; path = "股票记帐本/stockTradeViewController.h"; sourceTree = "<group>"; };
+		1B6B079C1B95F2FB00A152F2 /* stockTradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = stockTradeViewController.m; path = "股票记帐本/stockTradeViewController.m"; sourceTree = "<group>"; };
+		1B6B079E1B95F50500A152F2 /* stockTradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stockTradeTableViewCell.h; path = "股票记帐本/stockTradeTableViewCell.h"; sourceTree = "<group>"; };
+		1B6B079F1B95F50500A152F2 /* stockTradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = stockTradeTableViewCell.m; path = "股票记帐本/stockTradeTableViewCell.m"; sourceTree = "<group>"; };
+		1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = stockTradeTableViewCell.xib; path = "股票记帐本/stockTradeTableViewCell.xib"; sourceTree = "<group>"; };
+		1BA50B551B96D3AC004A196D /* addStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addStockViewController.h; path = "股票记帐本/addStockViewController.h"; sourceTree = "<group>"; };
+		1BA50B561B96D3AC004A196D /* addStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addStockViewController.m; path = "股票记帐本/addStockViewController.m"; sourceTree = "<group>"; };
+		1BA50B581B96EE5C004A196D /* stockData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stockData.h; path = "股票记帐本/stockData.h"; sourceTree = "<group>"; };
+		1BA50B591B96EE5C004A196D /* stockData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = stockData.m; path = "股票记帐本/stockData.m"; sourceTree = "<group>"; };
+		1BC8FCE01BAAA6580097D520 /* historySellStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historySellStockViewController.h; sourceTree = "<group>"; };
+		1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historySellStockViewController.m; sourceTree = "<group>"; };
+		1BDF3D691BA2BA74007BEAF6 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = "股票记帐本/DataModel.h"; sourceTree = "<group>"; };
+		1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = "股票记帐本/DataModel.m"; sourceTree = "<group>"; };
+		1BE91E781B9EC70400656B44 /* sellStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sellStockViewController.h; path = "股票记帐本/sellStockViewController.h"; sourceTree = "<group>"; };
+		1BE91E791B9EC70400656B44 /* sellStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sellStockViewController.m; path = "股票记帐本/sellStockViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B6B076C1B95F28800A152F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B6B07881B95F28800A152F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B466E691BA9AD3D00049DDD /* Trade Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B079B1B95F2FB00A152F2 /* stockTradeViewController.h */,
+				1B6B079C1B95F2FB00A152F2 /* stockTradeViewController.m */,
+				1B6B079E1B95F50500A152F2 /* stockTradeTableViewCell.h */,
+				1B6B079F1B95F50500A152F2 /* stockTradeTableViewCell.m */,
+				1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */,
+				1BA50B551B96D3AC004A196D /* addStockViewController.h */,
+				1BA50B561B96D3AC004A196D /* addStockViewController.m */,
+				1BA50B581B96EE5C004A196D /* stockData.h */,
+				1BA50B591B96EE5C004A196D /* stockData.m */,
+				1BDF3D691BA2BA74007BEAF6 /* DataModel.h */,
+				1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */,
+				1BE91E781B9EC70400656B44 /* sellStockViewController.h */,
+				1BE91E791B9EC70400656B44 /* sellStockViewController.m */,
+			);
+			name = "Trade Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1B466E6A1BA9ADCE00049DDD /* History Trade Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B466E6B1BA9AE3C00049DDD /* historyTradeViewController.h */,
+				1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */,
+				1B466E6E1BA9BF0C00049DDD /* historyDataModel.h */,
+				1B466E6F1BA9BF0C00049DDD /* historyDataModel.m */,
+				1BC8FCE01BAAA6580097D520 /* historySellStockViewController.h */,
+				1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */,
+			);
+			name = "History Trade Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1B6B07661B95F28800A152F2 = {
+			isa = PBXGroup;
+			children = (
+				1B6B07711B95F28800A152F2 /* 股票记帐本 */,
+				1B6B078E1B95F28800A152F2 /* 股票记帐本Tests */,
+				1B6B07701B95F28800A152F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1B6B07701B95F28800A152F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B076F1B95F28800A152F2 /* 股票记帐本.app */,
+				1B6B078B1B95F28800A152F2 /* 股票记帐本Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B6B07711B95F28800A152F2 /* 股票记帐本 */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B07761B95F28800A152F2 /* AppDelegate.h */,
+				1B6B07771B95F28800A152F2 /* AppDelegate.m */,
+				1B6B077F1B95F28800A152F2 /* Main.storyboard */,
+				1B6B07821B95F28800A152F2 /* Images.xcassets */,
+				1B6B07841B95F28800A152F2 /* LaunchScreen.xib */,
+				1B466E691BA9AD3D00049DDD /* Trade Files */,
+				1B466E6A1BA9ADCE00049DDD /* History Trade Files */,
+				1B6B07721B95F28800A152F2 /* Supporting Files */,
+			);
+			path = "股票记帐本";
+			sourceTree = "<group>";
+		};
+		1B6B07721B95F28800A152F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B07731B95F28800A152F2 /* Info.plist */,
+				1B6B07741B95F28800A152F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1B6B078E1B95F28800A152F2 /* 股票记帐本Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B07911B95F28800A152F2 /* _____Tests.m */,
+				1B6B078F1B95F28800A152F2 /* Supporting Files */,
+			);
+			path = "股票记帐本Tests";
+			sourceTree = "<group>";
+		};
+		1B6B078F1B95F28800A152F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B07901B95F28800A152F2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B6B076E1B95F28800A152F2 /* 股票记帐本 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B6B07951B95F28800A152F2 /* Build configuration list for PBXNativeTarget "股票记帐本" */;
+			buildPhases = (
+				1B6B076B1B95F28800A152F2 /* Sources */,
+				1B6B076C1B95F28800A152F2 /* Frameworks */,
+				1B6B076D1B95F28800A152F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "股票记帐本";
+			productName = "股票记帐本";
+			productReference = 1B6B076F1B95F28800A152F2 /* 股票记帐本.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1B6B078A1B95F28800A152F2 /* 股票记帐本Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B6B07981B95F28800A152F2 /* Build configuration list for PBXNativeTarget "股票记帐本Tests" */;
+			buildPhases = (
+				1B6B07871B95F28800A152F2 /* Sources */,
+				1B6B07881B95F28800A152F2 /* Frameworks */,
+				1B6B07891B95F28800A152F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B6B078D1B95F28800A152F2 /* PBXTargetDependency */,
+			);
+			name = "股票记帐本Tests";
+			productName = "股票记帐本Tests";
+			productReference = 1B6B078B1B95F28800A152F2 /* 股票记帐本Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1B6B07671B95F28800A152F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "施德胜";
+				TargetAttributes = {
+					1B6B076E1B95F28800A152F2 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = CG47XZ53TA;
+					};
+					1B6B078A1B95F28800A152F2 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 1B6B076E1B95F28800A152F2;
+					};
+				};
+			};
+			buildConfigurationList = 1B6B076A1B95F28800A152F2 /* Build configuration list for PBXProject "股票记帐本" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1B6B07661B95F28800A152F2;
+			productRefGroup = 1B6B07701B95F28800A152F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1B6B076E1B95F28800A152F2 /* 股票记帐本 */,
+				1B6B078A1B95F28800A152F2 /* 股票记帐本Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1B6B076D1B95F28800A152F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B6B07811B95F28800A152F2 /* Main.storyboard in Resources */,
+				1B6B07861B95F28800A152F2 /* LaunchScreen.xib in Resources */,
+				1B6B07831B95F28800A152F2 /* Images.xcassets in Resources */,
+				1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B6B07891B95F28800A152F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B6B076B1B95F28800A152F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B466E701BA9BF0C00049DDD /* historyDataModel.m in Sources */,
+				1B6B079D1B95F2FB00A152F2 /* stockTradeViewController.m in Sources */,
+				1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */,
+				1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */,
+				1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */,
+				1B466E6D1BA9AE3C00049DDD /* historyTradeViewController.m in Sources */,
+				1B6B07781B95F28800A152F2 /* AppDelegate.m in Sources */,
+				1B6B07751B95F28800A152F2 /* main.m in Sources */,
+				1BC8FCE21BAAA6580097D520 /* historySellStockViewController.m in Sources */,
+				1B6B07A11B95F50500A152F2 /* stockTradeTableViewCell.m in Sources */,
+				1BE91E7A1B9EC70400656B44 /* sellStockViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B6B07871B95F28800A152F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B6B07921B95F28800A152F2 /* _____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B6B078D1B95F28800A152F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B6B076E1B95F28800A152F2 /* 股票记帐本 */;
+			targetProxy = 1B6B078C1B95F28800A152F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1B6B077F1B95F28800A152F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B6B07801B95F28800A152F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1B6B07841B95F28800A152F2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B6B07851B95F28800A152F2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1B6B07931B95F28800A152F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1B6B07941B95F28800A152F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1B6B07961B95F28800A152F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "股票记帐本/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shidesheng.stockNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		1B6B07971B95F28800A152F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "股票记帐本/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shidesheng.stockNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		1B6B07991B95F28800A152F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "股票记帐本Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shidesheng.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/股票记帐本.app/股票记帐本";
+			};
+			name = Debug;
+		};
+		1B6B079A1B95F28800A152F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "股票记帐本Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shidesheng.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/股票记帐本.app/股票记帐本";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B6B076A1B95F28800A152F2 /* Build configuration list for PBXProject "股票记帐本" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B6B07931B95F28800A152F2 /* Debug */,
+				1B6B07941B95F28800A152F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B6B07951B95F28800A152F2 /* Build configuration list for PBXNativeTarget "股票记帐本" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B6B07961B95F28800A152F2 /* Debug */,
+				1B6B07971B95F28800A152F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B6B07981B95F28800A152F2 /* Build configuration list for PBXNativeTarget "股票记帐本Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B6B07991B95F28800A152F2 /* Debug */,
+				1B6B079A1B95F28800A152F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1B6B07671B95F28800A152F2 /* Project object */;
+}
