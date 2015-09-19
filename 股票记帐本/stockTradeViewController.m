@@ -21,7 +21,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 @implementation stockTradeViewController{
     NSInteger _selectedIndexPathRow;
     NSUInteger _theMountOfSelling;
-    UISearchController *searchController;
    
 }
 //- (id)initWithCoder:(NSCoder *)aDecoder{
