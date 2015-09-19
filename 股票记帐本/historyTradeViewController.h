@@ -10,7 +10,7 @@
 #import "historyDataModel.h"
 
 
-@interface historyTradeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface historyTradeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating>
 
 @property (strong, nonatomic) historyDataModel *historyDataModel;
 

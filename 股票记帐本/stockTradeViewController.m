@@ -14,6 +14,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
 @interface stockTradeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSMutableArray *searchData;
 
 
 @end
@@ -59,8 +61,14 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     [self.tableview reloadData];
+    //初始化搜索栏
+    _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater=self;
+    _searchController.dimsBackgroundDuringPresentation=NO;
+    _searchController.hidesNavigationBarDuringPresentation=NO;
+    _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
+    self.tableview.tableHeaderView=self.searchController.searchBar;
 }
 
 - (void)viewDidLoad {
@@ -75,12 +83,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     self.dataModel=[[DataModel alloc]init];
     self.historyDataModel=[[historyDataModel alloc]init];
     [self setTotalGainSignAndColor];
-    
-    
-    
-    
-  
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,19 +95,39 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.dataModel.Data count];
+    if (self.searchController.active) {
+        return [self.searchData count];
+    }else{
+        return [self.dataModel.Data count];
+    }
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    NSString *searchString = [self.searchController.searchBar text];
+    if (self.searchData!= nil) {
+        [self.searchData removeAllObjects];
+    }
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", searchString];
+    //过滤数据
+//    self.searchData= [NSMutableArray arrayWithArray:[self.dataModel.Data filteredArrayUsingPredicate:predicate]];
+    self.searchData=[[NSMutableArray alloc]initWithCapacity:20];
+    for (NSUInteger i=0;i<[self.dataModel.Data count];i++) {
+        stockData *stockdata=self.dataModel.Data[i];
+        if ([stockdata.nameOfStock containsString:searchString]) {
+            [self.searchData addObject:self.dataModel.Data[i]];
+        }
+    }
+    [self.tableview reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     stockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-//    cell.nameOfStock.text=@"nameOfStock";
-//    cell.timeOfDeal.text=@"timeOfDeal";
-//    cell.buyPriceAndNumebr.text=@"buyPriceAndNumebr";
-//    cell.numberOfHolding.text=@"numberOfHolding";
-//    cell.gainOrLose.text=@"gainOrLose";
-   
-    
-    stockData *stockdata=self.dataModel.Data[indexPath.row];
+    stockData *stockdata;
+    if (self.searchController.active) {
+        stockdata=self.searchData[indexPath.row];
+    }else{
+        stockdata=self.dataModel.Data[indexPath.row];
+    }
     cell.nameOfStock.text=stockdata.nameOfStock;
     cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];//stockdata.buyPrice;
     cell.timeOfDeal.text=stockdata.buyTime;
@@ -184,6 +206,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 }
 */
 
+
 #pragma mark 代理方法
 
 
@@ -199,7 +222,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //    [self.dataModel.Data addObject:stockdata];
     [self.dataModel saveData];
     [self.tableview reloadData];
-    NSLog(@"222%@",self.dataModel);
+
    
     //添加时间
     

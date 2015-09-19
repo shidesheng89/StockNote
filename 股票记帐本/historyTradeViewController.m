@@ -14,6 +14,8 @@
 static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
 @interface historyTradeViewController ()
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSMutableArray *searchData;
 
 @end
 
@@ -35,6 +37,14 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     self.historyDataModel=[[historyDataModel alloc]init];
     
+    //初始化搜索栏
+    _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater=self;
+    _searchController.dimsBackgroundDuringPresentation=NO;
+    _searchController.hidesNavigationBarDuringPresentation=NO;
+    _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
+    self.historyTableView.tableHeaderView=self.searchController.searchBar;
+    
 //    self.historyDataModel=[[historyDataModel alloc]init];
     // Do any additional setup after loading the view.
 }
@@ -50,14 +60,41 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    NSLog(@"%lu",(unsigned long)[self.historyDataModel.historyData count]);
-    return [self.historyDataModel.historyData count];
+    if (self.searchController.active) {
+        return [self.searchData count];
+    }else{
+        return [self.historyDataModel.historyData count];
+    }
 //    return 10;
     
 }
-//
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    NSString *searchString = [self.searchController.searchBar text];
+    if (self.searchData!= nil) {
+        [self.searchData removeAllObjects];
+    }
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", searchString];
+    //过滤数据
+    //    self.searchData= [NSMutableArray arrayWithArray:[self.dataModel.Data filteredArrayUsingPredicate:predicate]];
+    self.searchData=[[NSMutableArray alloc]initWithCapacity:20];
+    for (NSUInteger i=0;i<[self.historyDataModel.historyData count];i++) {
+        stockData *stockdata=self.historyDataModel.historyData[i];
+        if ([stockdata.nameOfStock containsString:searchString]) {
+            [self.searchData addObject:self.historyDataModel.historyData[i]];
+        }
+    }
+    [self.historyTableView reloadData];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     stockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    stockData *stockdata=self.historyDataModel.historyData[indexPath.row];
+    stockData *stockdata;
+    if (self.searchController.active) {
+        stockdata=self.searchData[indexPath.row];
+    }else{
+        stockdata=self.historyDataModel.historyData[indexPath.row];
+    }
     cell.nameOfStock.text=stockdata.nameOfStock;
     cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];
     cell.timeOfDeal.text=stockdata.buyTime;
