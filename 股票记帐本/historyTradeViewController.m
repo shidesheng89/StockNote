@@ -29,7 +29,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     [super viewDidLoad];
     
     UITableView *tableView=(id)[self.view viewWithTag:100];
-    tableView.rowHeight=110;
+    tableView.rowHeight=80;
     UINib *nib=[UINib nibWithNibName:@"stockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     

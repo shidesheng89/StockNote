@@ -43,7 +43,7 @@
 //    [self.delegate addStockViewController:self didFinishAddNameOfStock:self.nameOfStock didFinishAddNumberOfStock:self.numberOfStock didFinishAddPriceOfStock:self.priceOfStock didFinishAddBuyNumber:self.buyNumber];
     //设置时间格式
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy.MM.dd.hh"];
+    [dateFormatter setDateFormat:@"yy年MM月dd日"];
     
     stockData *stockdata=[[stockData alloc]init];
     stockdata.nameOfStock=self.nameOfStock.text;
@@ -61,7 +61,7 @@
 //@property (copy, nonatomic) NSString *buyPriceAndNumebr;
 //@property (copy, nonatomic) NSString *numberOfHolding;
 //@property (copy, nonatomic) NSString *gainOrLose;
-//@property (copy, nonatomic) NSString *currentPrice;
+
 
 //Checklist *checklist = [[Checklist alloc] init];
 //checklist.name = self.textField.text;

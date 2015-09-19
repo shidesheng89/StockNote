@@ -21,6 +21,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 @implementation stockTradeViewController{
     NSInteger _selectedIndexPathRow;
     NSUInteger _theMountOfSelling;
+    UISearchController *searchController;
    
 }
 //- (id)initWithCoder:(NSCoder *)aDecoder{
@@ -31,15 +32,31 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //    return self;
 //}
 
-- (NSString *)computeTotalGain{
+//总盈利设置
+- (float)computeTotalGain{
     float _totalGainOrLoseValue = 0.0;
     for (NSUInteger i=0; i<[self.dataModel.Data count]; i++) {
         stockData *stockdata=self.dataModel.Data[i];
         _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue];
     }
-    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
-    return totalGain;
+//    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
+    return _totalGainOrLoseValue;
 }
+- (void)setTotalGainSignAndColor{
+   float totalGainOrLoseValue=[self computeTotalGain];
+    NSLog(@"totalGainOrLoseValue%f",totalGainOrLoseValue);
+    if (totalGainOrLoseValue>0) {
+        self.totalGain.text=[NSString stringWithFormat:@"+%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    }else if (totalGainOrLoseValue==0){
+        self.totalGain.text=[NSString stringWithFormat:@"%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithWhite:1 alpha:1];
+    }else if (totalGainOrLoseValue<0){
+        self.totalGain.text=[NSString stringWithFormat:@"%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    }
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -50,7 +67,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     UITableView *tableView=(id)[self.view viewWithTag:1];
-    tableView.rowHeight=110;
+    tableView.rowHeight=80;
     UINib *nib=[UINib nibWithNibName:@"stockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
@@ -58,7 +75,10 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     self.dataModel=[[DataModel alloc]init];
     self.historyDataModel=[[historyDataModel alloc]init];
-    self.totalGain.text=[self computeTotalGain];
+    [self setTotalGainSignAndColor];
+    
+    
+    
     
   
     
@@ -97,11 +117,34 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         cell.numberOfHolding.text=stockdata.numberOfHolding;
     }
     
-    
+    //设置单只股票的盈亏格式
     if (stockdata.gainOrLose==nil) {
         cell.gainOrLose.text=@"0";
+        cell.percentOfGainOrLose.text=@"0 %";
+        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
     }else{
-        cell.gainOrLose.text=stockdata.gainOrLose;
+        float ValueOfGainOrLose=[stockdata.gainOrLose floatValue];
+        float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
+        float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
+        if (ValueOfGainOrLose>0) {
+            cell.gainOrLose.text=[NSString stringWithFormat:@"+%.0f",ValueOfGainOrLose];
+            cell.gainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"+%.2f%%",percentOfGainOrLose];
+            cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+            
+        }else if (ValueOfGainOrLose==0){
+            cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+            cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+            cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+        }else if (ValueOfGainOrLose<0){
+            cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+            cell.gainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+            cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+        }
+        
     }
 //    if (stockdata.totalGain==nil) {
 //        self.totalGain.text=@"0";
@@ -180,7 +223,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         
     }
     [self.dataModel saveData];
-    self.totalGain.text=[self computeTotalGain];
+    [self setTotalGainSignAndColor];
     NSLog(@"111%@",self.dataModel);
    
 }
@@ -255,7 +298,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 //    //通知additemviewcontroller，checklistsviewcontroller是它的代理
 //    if ([segue.identifier isEqualToString:@"AddItem"]) {
-//        
+//
 //        UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
 //        
 //        ItemDetailViewController *controller=(ItemDetailViewController*)navigationController.topViewController;//为了获取AddItemViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面

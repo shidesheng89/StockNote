@@ -69,15 +69,21 @@
     NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
 //    stockData *stockdata=self.dataModel.Data[indexPath.row];
     cell.textLabel.text=self.stockdata.sellData[indexPath.row];
+    cell.detailTextLabel.text=self.stockdata.sellStockDate[indexPath.row];
+    cell.detailTextLabel.textColor=[UIColor colorWithWhite:0 alpha:0.7];
 
     return cell;
 }
 
-
+- (NSString *)sellStockDate{
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy年MM月dd日"];
+    return [dateFormatter stringFromDate:[NSDate date]];
+}
 
 - (IBAction)Done:(id)sender {
 //    stockData *stockdata=[[stockData alloc]init];
@@ -92,7 +98,7 @@
     float buyPriceValue=[self.stockdata.buyPrice floatValue];
     float sellPriceValue=[self.priceOfSell.text floatValue];
     NSInteger sellMOunt=[self.numberOfSell.text integerValue];
-    NSString *gain=[NSString stringWithFormat:@"%f",(sellPriceValue-buyPriceValue)*sellMOunt];
+    NSString *gain=[NSString stringWithFormat:@"%.0f",(sellPriceValue-buyPriceValue)*sellMOunt];
     
     if (MountOfHolding>=0) {
         
@@ -103,8 +109,9 @@
         NSLog(@"gainOrLoseArray%@",self.stockdata.gainOrLoseArray);
         
         self.stockdata.numberOfHolding=[NSString stringWithFormat:@"%ld",(long)MountOfHolding];
-        NSString *selldata=[NSString stringWithFormat:@"以%@元每股买入%@股,盈利 %@",self.priceOfSell.text,self.numberOfSell.text,gain];
+        NSString *selldata=[NSString stringWithFormat:@"以%@元每股卖出%@股,盈利 %@",self.priceOfSell.text,self.numberOfSell.text,gain];
         [self.stockdata.sellData insertObject:selldata atIndex:0];
+        [self.stockdata.sellStockDate insertObject:[self sellStockDate] atIndex:0];
 
         
         [self.delegate sellStockViewController:self didFinishAddingSellStock:self.stockdata];

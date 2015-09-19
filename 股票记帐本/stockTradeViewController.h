@@ -14,7 +14,7 @@
 #import "historyDataModel.h"
 #import "historyTradeViewController.h"
 
-@interface stockTradeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,addStockViewControllerDelegate,sellStockViewControllerDelegate>
+@interface stockTradeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,addStockViewControllerDelegate,sellStockViewControllerDelegate,UISearchDisplayDelegate>
 
 //@property (nonatomic,strong) stockData *stockData;
 
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) historyDataModel *historyDataModel;
 @property (strong, nonatomic) historyTradeViewController *historyTradeViewController;
 @property (weak, nonatomic) IBOutlet UILabel *totalGain;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end

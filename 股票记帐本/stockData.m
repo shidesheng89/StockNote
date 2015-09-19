@@ -18,13 +18,14 @@
 //        self.buyPriceAndNumebr=[[NSMutableArray alloc]initWithCapacity:20];
 //        self.numberOfHolding=[[NSMutableArray alloc]initWithCapacity:20];
 //        self.gainOrLose=[[NSMutableArray alloc]initWithCapacity:20];
-//        self.currentPrice=[[NSMutableArray alloc]initWithCapacity:20];
+
 //        
 //        self.stockDataDirectionary=[[NSMutableDictionary alloc] initWithCapacity:100];
         self.sellData=[[NSMutableArray alloc]initWithCapacity:20];
         self.sellMount=[[NSMutableArray alloc]initWithCapacity:20];
         self.sellPrice=[[NSMutableArray alloc]initWithCapacity:20];
         self.gainOrLoseArray=[[NSMutableArray alloc]initWithCapacity:20];
+        self.sellStockDate=[[NSMutableArray alloc]initWithCapacity:20];
     }
     return self;
 }
@@ -39,12 +40,12 @@
         self.buyPrice=[aDecoder decodeObjectForKey:@"buyPrice"];
         self.numberOfHolding=[aDecoder decodeObjectForKey:@"numberOfHolding"];
         self.gainOrLose=[aDecoder decodeObjectForKey:@"gainOrLose"];
-        self.currentPrice=[aDecoder decodeObjectForKey:@"currentPrice"];
         self.buyTime=[aDecoder decodeObjectForKey:@"buyTime"];
         self.sellPrice=[aDecoder decodeObjectForKey:@"sellPrice"];
         self.sellMount=[aDecoder decodeObjectForKey:@"sellMount"];
         self.gainOrLoseArray=[aDecoder decodeObjectForKey:@"gainOrLoseArray"];
         self.totalGain=[aDecoder decodeObjectForKey:@"totalGain"];
+        self.sellStockDate=[aDecoder decodeObjectForKey:@"sellStockDate"];
         
         
     }
@@ -60,11 +61,11 @@
     [aCoder encodeObject:self.buyNumber forKey:@"buyNumber"];
     [aCoder encodeObject:self.numberOfHolding forKey:@"numberOfHolding"];
     [aCoder encodeObject:self.gainOrLose forKey:@"gainOrLose"];
-    [aCoder encodeObject:self.currentPrice forKey:@"currentPrice"];
     [aCoder encodeObject:self.buyTime forKey:@"buyTime"];
     [aCoder encodeObject:self.sellPrice forKey:@"sellPrice"];
     [aCoder encodeObject:self.sellMount forKey:@"sellMount"];
     [aCoder encodeObject:self.gainOrLoseArray forKey:@"gainOrLoseArray"];
     [aCoder encodeObject:self.totalGain forKey:@"totalGain"];
+    [aCoder encodeObject:self.sellStockDate forKey:@"sellStockDate"];
 }
 @end

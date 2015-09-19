@@ -32,10 +32,11 @@
     NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     //    stockData *stockdata=self.dataModel.Data[indexPath.row];
     cell.textLabel.text=self.stockdata.sellData[indexPath.row];
+    cell.detailTextLabel.text=self.stockdata.sellStockDate[indexPath.row];
     
     return cell;
 }

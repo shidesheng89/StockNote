@@ -16,7 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *numberOfHolding;
 @property (weak, nonatomic) IBOutlet UILabel *gainOrLose;
+@property (weak, nonatomic) IBOutlet UILabel *percentOfGainOrLose;
 
-@property (weak, nonatomic) IBOutlet UITextField *currentPrice;
+
 
 @end

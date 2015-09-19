@@ -17,7 +17,7 @@
 //@property (strong, nonatomic) NSMutableArray *numberOfHolding;
 //@property (strong, nonatomic) NSMutableArray *gainOrLose;
 //
-//@property (strong, nonatomic) NSMutableArray *currentPrice;
+
 //
 //@property (strong, nonatomic) NSMutableDictionary *stockDataDirectionary;
 
@@ -28,14 +28,14 @@
 @property (copy, nonatomic) NSString *buyPrice;
 @property (copy, nonatomic) NSString *numberOfHolding;
 @property (copy, nonatomic) NSString *gainOrLose;
-@property (copy, nonatomic) NSString *currentPrice;
 @property (copy, nonatomic) NSString *buyTime;
 
 @property (strong, nonatomic) NSMutableArray *sellData;
 @property (strong, nonatomic) NSMutableArray *sellPrice;
 @property (strong, nonatomic) NSMutableArray *sellMount;
 @property (strong, nonatomic) NSMutableArray *gainOrLoseArray;
-
+@property (strong, nonatomic) NSMutableArray *sellStockDate;
 @property (strong, nonatomic) NSString *totalGain;
+
 
 @end

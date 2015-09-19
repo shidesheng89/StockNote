@@ -20,27 +20,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XOM-oi-MwK">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="485"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableFooterView" contentMode="redraw" id="EQa-pm-iVf">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="9pv-A4-QxB" id="l4J-D2-C0K"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="xjz-Xn-EQv"/>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="oqZ-RZ-8Vc"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="盈亏：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-R6-Cud">
-                                <rect key="frame" x="369" y="506" width="51" height="21"/>
+                                <rect key="frame" x="13" y="510" width="51" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="wXA-hV-Z4t"/>
+                                    <constraint firstAttribute="height" constant="21" id="wGd-1M-cuc"/>
+                                    <constraint firstAttribute="width" constant="51" id="xDr-UZ-24E"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVb-fE-PVe">
-                                <rect key="frame" x="428" y="506" width="11" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="11" id="8Td-rb-Std"/>
-                                </constraints>
+                                <rect key="frame" x="72" y="510" width="508" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,15 +54,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="tlk-R6-Cud" secondAttribute="bottom" constant="24" id="1hJ-SM-aTJ"/>
-                            <constraint firstItem="XOM-oi-MwK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="8wZ-m5-f9S"/>
-                            <constraint firstItem="tlk-R6-Cud" firstAttribute="top" secondItem="XOM-oi-MwK" secondAttribute="bottom" constant="21" id="HF9-iT-mUO"/>
-                            <constraint firstAttribute="trailing" secondItem="XOM-oi-MwK" secondAttribute="trailing" id="Xtt-qx-Uwj"/>
-                            <constraint firstItem="tlk-R6-Cud" firstAttribute="baseline" secondItem="lVb-fE-PVe" secondAttribute="baseline" id="epd-br-Wpq"/>
-                            <constraint firstItem="tlk-R6-Cud" firstAttribute="firstBaseline" secondItem="lVb-fE-PVe" secondAttribute="firstBaseline" id="fBY-Wy-Jnq"/>
-                            <constraint firstAttribute="trailing" secondItem="lVb-fE-PVe" secondAttribute="trailing" constant="161" id="mCM-tF-zx3"/>
-                            <constraint firstItem="lVb-fE-PVe" firstAttribute="leading" secondItem="tlk-R6-Cud" secondAttribute="trailing" constant="8" symbolic="YES" id="t6V-UW-b2h"/>
-                            <constraint firstItem="XOM-oi-MwK" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="tPw-EV-EUC"/>
+                            <constraint firstItem="XOM-oi-MwK" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="3qR-yH-nlK"/>
+                            <constraint firstItem="tlk-R6-Cud" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-7" id="7wJ-Se-I2u"/>
+                            <constraint firstItem="lVb-fE-PVe" firstAttribute="leading" secondItem="tlk-R6-Cud" secondAttribute="trailing" constant="8" symbolic="YES" id="HSc-59-xZU"/>
+                            <constraint firstItem="tlk-R6-Cud" firstAttribute="top" secondItem="XOM-oi-MwK" secondAttribute="bottom" constant="20" id="TrC-xu-jfF"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="tlk-R6-Cud" secondAttribute="bottom" constant="20" id="V9q-c3-C8p"/>
+                            <constraint firstItem="XOM-oi-MwK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="a9q-6M-gL7"/>
+                            <constraint firstAttribute="trailing" secondItem="XOM-oi-MwK" secondAttribute="trailing" id="eh7-Lb-iSs"/>
+                            <constraint firstItem="lVb-fE-PVe" firstAttribute="baseline" secondItem="tlk-R6-Cud" secondAttribute="baseline" id="jTO-Fz-23F"/>
+                            <constraint firstItem="lVb-fE-PVe" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="keE-vP-jcr"/>
+                            <constraint firstItem="lVb-fE-PVe" firstAttribute="firstBaseline" secondItem="tlk-R6-Cud" secondAttribute="firstBaseline" id="zn4-jt-iZV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="riN-jn-XIy"/>
@@ -68,6 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="EQa-pm-iVf" id="GMa-cr-pwj"/>
                         <outlet property="tableview" destination="XOM-oi-MwK" id="GEg-zy-IWR"/>
                         <outlet property="totalGain" destination="lVb-fE-PVe" id="p5C-jv-VTz"/>
                         <segue destination="MD9-wr-Z54" kind="show" identifier="sellStock" id="g6T-vI-Kuc"/>
@@ -296,7 +304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gG-io-c6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512" y="-304"/>
+            <point key="canvasLocation" x="2437" y="6"/>
         </scene>
         <!--Sell Stock View Controller-->
         <scene sceneID="RkV-2a-m5X">
