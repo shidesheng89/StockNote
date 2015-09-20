@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=self.stockdata.nameOfStock;
     // Do any additional setup after loading the view.
 }
 
@@ -39,6 +40,10 @@
     cell.detailTextLabel.text=self.stockdata.sellStockDate[indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
 #pragma mark - Navigation

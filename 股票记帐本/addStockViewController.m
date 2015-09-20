@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"添加股票";
     // Do any additional setup after loading the view.
 }
 
@@ -34,6 +35,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.nameOfStock resignFirstResponder];
+    [self.buyNumber resignFirstResponder];
+    [self.buyPrice resignFirstResponder];
+    [self.numberOfStock resignFirstResponder];
+}
 
 - (IBAction)cancle:(id)sender {
     [self.delegate addStockViewControllerDidCancel:self];

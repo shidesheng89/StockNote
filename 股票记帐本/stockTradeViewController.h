@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "addStockViewController.h"
-#import "stockData.h"
+
 #import "sellStockViewController.h"
 #import "DataModel.h"
 #import "historyDataModel.h"

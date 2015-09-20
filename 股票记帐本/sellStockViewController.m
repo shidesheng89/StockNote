@@ -30,11 +30,18 @@
 //    }
 //    return self;
 //}
-
+-(void)dismissKeyBoard{
+    [self.numberOfSell resignFirstResponder];
+    [self.priceOfSell resignFirstResponder];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.dataModel=[[DataModel alloc]init];
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyBoard)];
+    [self.tableView addGestureRecognizer:tapGesture];
+    self.title=self.stockdata.nameOfStock;
 
 
     // Do any additional setup after loading the view.
@@ -136,6 +143,10 @@
 //    [self.tableView reloadData];
 //    [self.dataModel saveData];
 //    [self.delegate sellStockViewControllerDidFinish:self];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)showAlert:(NSString *)showMessage{

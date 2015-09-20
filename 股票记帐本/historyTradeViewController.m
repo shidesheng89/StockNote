@@ -8,7 +8,7 @@
 
 #import "historyTradeViewController.h"
 #import "stockTradeTableViewCell.h"
-#import "stockData.h"
+
 #import "historySellStockViewController.h"
 
 static NSString *cellIdentifier=@"stockTradeTableViewCell";
@@ -36,6 +36,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
     self.historyDataModel=[[historyDataModel alloc]init];
+    [self setTotalGainSignAndColor];
     
     //初始化搜索栏
     _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
@@ -44,6 +45,9 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     _searchController.hidesNavigationBarDuringPresentation=NO;
     _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
     self.historyTableView.tableHeaderView=self.searchController.searchBar;
+    _searchController.searchBar.placeholder=@"-输入证券名称-";
+    
+    self.title=@"历史交易";
     
 //    self.historyDataModel=[[historyDataModel alloc]init];
     // Do any additional setup after loading the view.
@@ -100,6 +104,28 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     cell.timeOfDeal.text=stockdata.buyTime;
     cell.numberOfHolding.text=stockdata.numberOfHolding;
     cell.gainOrLose.text=stockdata.gainOrLose;
+    //设置单只股票历史收益
+    float ValueOfGainOrLose=[stockdata.gainOrLose floatValue];
+    float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
+    float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
+    if (ValueOfGainOrLose>0) {
+        cell.gainOrLose.text=[NSString stringWithFormat:@"+%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"+%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+        
+    }else if (ValueOfGainOrLose==0){
+        cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+    }else if (ValueOfGainOrLose<0){
+        cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    }
+
 //    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 //    if (cell==nil) {
 //        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -112,6 +138,13 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     stockData *stockdata=self.historyDataModel.historyData[indexPath.row];
     [self performSegueWithIdentifier:@"sellStockHistory" sender:stockdata];
     
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.historyDataModel.historyData removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths=@[indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.historyDataModel saveHistoryData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -134,5 +167,35 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark 自定义方法
+//总盈利设置
+- (float)computeTotalGain:(NSMutableArray*)dataArray{
+    float _totalGainOrLoseValue = 0.0;
+    for (NSUInteger i=0; i<[dataArray count]; i++) {
+        stockData *stockdata=dataArray[i];
+        _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue];
+    }
+    //    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
+    return _totalGainOrLoseValue;
+}
+
+
+- (void)setTotalGainSignAndColor{
+    self.totalGain.text=@"0";
+    self.totalGain.textColor=[UIColor colorWithWhite:0 alpha:1];
+    float totalGainOrLoseValue=[self computeTotalGain:self.historyDataModel.historyData];
+    NSLog(@"totalGainOrLoseValue%f",totalGainOrLoseValue);
+    if (totalGainOrLoseValue>0) {
+        self.totalGain.text=[NSString stringWithFormat:@"+%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    }else if (totalGainOrLoseValue==0){
+        self.totalGain.text=[NSString stringWithFormat:@"%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithWhite:0 alpha:1];
+    }else if (totalGainOrLoseValue<0){
+        self.totalGain.text=[NSString stringWithFormat:@"%.0f",totalGainOrLoseValue];
+        self.totalGain.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    }
+}
 
 @end

@@ -68,4 +68,6 @@
     [aCoder encodeObject:self.totalGain forKey:@"totalGain"];
     [aCoder encodeObject:self.sellStockDate forKey:@"sellStockDate"];
 }
+
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "historyDataModel.h"
+#import "stockData.h"
 
 
 @interface historyTradeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating>
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) historyDataModel *historyDataModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *historyTableView;
+//@property (strong, nonatomic) stockData *stockData;
+@property (weak, nonatomic) IBOutlet UILabel *totalGain;
 
 
 
