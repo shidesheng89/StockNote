@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B45DB7E1BAEC2E300AFE1CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B45DB7D1BAEC2E300AFE1CE /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		1B45DB821BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B45DB801BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		1B45DB831BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B45DB811BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1B466E6D1BA9AE3C00049DDD /* historyTradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */; };
 		1B466E701BA9BF0C00049DDD /* historyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466E6F1BA9BF0C00049DDD /* historyDataModel.m */; };
 		1B6B07751B95F28800A152F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07741B95F28800A152F2 /* main.m */; };
@@ -39,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		1B45DB7D1BAEC2E300AFE1CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "股票记帐本Tests/Info.plist"; sourceTree = SOURCE_ROOT; };
+		1B45DB7F1BAEC6B800AFE1CE /* historyStockTradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = historyStockTradeTableViewCell.h; path = "股票记帐本/historyStockTradeTableViewCell.h"; sourceTree = "<group>"; };
+		1B45DB801BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = historyStockTradeTableViewCell.m; path = "股票记帐本/historyStockTradeTableViewCell.m"; sourceTree = "<group>"; };
+		1B45DB811BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = historyStockTradeTableViewCell.xib; path = "股票记帐本/historyStockTradeTableViewCell.xib"; sourceTree = "<group>"; };
 		1B466E6B1BA9AE3C00049DDD /* historyTradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = historyTradeViewController.h; path = "股票记帐本/historyTradeViewController.h"; sourceTree = "<group>"; };
 		1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = historyTradeViewController.m; path = "股票记帐本/historyTradeViewController.m"; sourceTree = "<group>"; };
 		1B466E6E1BA9BF0C00049DDD /* historyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyDataModel.h; sourceTree = "<group>"; };
@@ -94,11 +99,11 @@
 			children = (
 				1B6B079B1B95F2FB00A152F2 /* stockTradeViewController.h */,
 				1B6B079C1B95F2FB00A152F2 /* stockTradeViewController.m */,
+				1BA50B551B96D3AC004A196D /* addStockViewController.h */,
+				1BA50B561B96D3AC004A196D /* addStockViewController.m */,
 				1B6B079E1B95F50500A152F2 /* stockTradeTableViewCell.h */,
 				1B6B079F1B95F50500A152F2 /* stockTradeTableViewCell.m */,
 				1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */,
-				1BA50B551B96D3AC004A196D /* addStockViewController.h */,
-				1BA50B561B96D3AC004A196D /* addStockViewController.m */,
 				1BA50B581B96EE5C004A196D /* stockData.h */,
 				1BA50B591B96EE5C004A196D /* stockData.m */,
 				1BDF3D691BA2BA74007BEAF6 /* DataModel.h */,
@@ -113,6 +118,9 @@
 		1B466E6A1BA9ADCE00049DDD /* History Trade Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B45DB7F1BAEC6B800AFE1CE /* historyStockTradeTableViewCell.h */,
+				1B45DB801BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m */,
+				1B45DB811BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib */,
 				1B466E6B1BA9AE3C00049DDD /* historyTradeViewController.h */,
 				1B466E6C1BA9AE3C00049DDD /* historyTradeViewController.m */,
 				1B466E6E1BA9BF0C00049DDD /* historyDataModel.h */,
@@ -270,6 +278,7 @@
 				1B45DB7E1BAEC2E300AFE1CE /* Info.plist in Resources */,
 				1B6B07831B95F28800A152F2 /* Images.xcassets in Resources */,
 				1B720A981BAEC17700C4CD0F /* Default-568h@2x.png in Resources */,
+				1B45DB831BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib in Resources */,
 				1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B45DB821BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m in Sources */,
 				1B466E701BA9BF0C00049DDD /* historyDataModel.m in Sources */,
 				1B6B079D1B95F2FB00A152F2 /* stockTradeViewController.m in Sources */,
 				1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */,

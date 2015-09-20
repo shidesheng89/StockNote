@@ -19,7 +19,7 @@
 - (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata;
 @end
 
-@interface addStockViewController : UIViewController
+@interface addStockViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic)id<addStockViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *nameOfStock;
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *buyPrice;
 @property (weak, nonatomic) IBOutlet UITextField *buyNumber;
 @property (weak, nonatomic) NSString *buyTime;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 - (IBAction)cancle:(id)sender;
 - (IBAction)Done:(id)sender;

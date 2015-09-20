@@ -25,7 +25,7 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0 green:127/255.0 blue:236/255.0 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
     
 //    _dataModel=[[DataModel alloc]init];

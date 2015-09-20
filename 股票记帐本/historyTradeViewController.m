@@ -7,7 +7,7 @@
 //
 
 #import "historyTradeViewController.h"
-#import "stockTradeTableViewCell.h"
+#import "historyStockTradeTableViewCell.h"
 
 #import "historySellStockViewController.h"
 
@@ -32,7 +32,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     UITableView *tableView=(id)[self.view viewWithTag:100];
     tableView.rowHeight=80;
-    UINib *nib=[UINib nibWithNibName:@"stockTradeTableViewCell" bundle:nil];
+    UINib *nib=[UINib nibWithNibName:@"historyStockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
     self.historyDataModel=[[historyDataModel alloc]init];
@@ -47,7 +47,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     self.historyTableView.tableHeaderView=self.searchController.searchBar;
     _searchController.searchBar.placeholder=@"-输入证券名称-";
     
-    self.title=@"历史交易";
+    self.title=@"历 史";
     
 //    self.historyDataModel=[[historyDataModel alloc]init];
     // Do any additional setup after loading the view.
@@ -92,7 +92,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    stockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    historyStockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     stockData *stockdata;
     if (self.searchController.active) {
         stockdata=self.searchData[indexPath.row];
@@ -102,8 +102,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     cell.nameOfStock.text=stockdata.nameOfStock;
     cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];
     cell.timeOfDeal.text=stockdata.buyTime;
-    cell.numberOfHolding.text=stockdata.numberOfHolding;
     cell.gainOrLose.text=stockdata.gainOrLose;
+    cell.stockNumer.text=stockdata.stockNumber;
     //设置单只股票历史收益
     float ValueOfGainOrLose=[stockdata.gainOrLose floatValue];
     float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
@@ -145,6 +145,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     NSArray *indexPaths=@[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.historyDataModel saveHistoryData];
+    [self setTotalGainSignAndColor];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

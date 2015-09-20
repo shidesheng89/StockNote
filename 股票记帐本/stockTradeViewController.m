@@ -45,7 +45,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     tableView.rowHeight=80;
     UINib *nib=[UINib nibWithNibName:@"stockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
-    self.title=@"交易";
+    self.title=@"交 易";
     
     // Do any additional setup after loading the view.
     
@@ -61,6 +61,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
     self.tableview.tableHeaderView=self.searchController.searchBar;
     _searchController.searchBar.placeholder=@"-输入证券名称-";
+    
+  
     
 }
 
@@ -110,6 +112,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     cell.nameOfStock.text=stockdata.nameOfStock;
     cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];//stockdata.buyPrice;
     cell.timeOfDeal.text=stockdata.buyTime;
+    cell.stockNumber.text=stockdata.stockNumber;
     
     if (stockdata.numberOfHolding==nil) {
         cell.numberOfHolding.text=stockdata.buyNumber;

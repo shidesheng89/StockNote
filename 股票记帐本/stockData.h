@@ -29,6 +29,7 @@
 @property (copy, nonatomic) NSString *numberOfHolding;
 @property (copy, nonatomic) NSString *gainOrLose;
 @property (copy, nonatomic) NSString *buyTime;
+@property (copy, nonatomic) NSString *stockNumber;
 
 @property (strong, nonatomic) NSMutableArray *sellData;
 @property (strong, nonatomic) NSMutableArray *sellPrice;

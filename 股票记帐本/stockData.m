@@ -46,6 +46,7 @@
         self.gainOrLoseArray=[aDecoder decodeObjectForKey:@"gainOrLoseArray"];
         self.totalGain=[aDecoder decodeObjectForKey:@"totalGain"];
         self.sellStockDate=[aDecoder decodeObjectForKey:@"sellStockDate"];
+        self.stockNumber=[aDecoder decodeObjectForKey:@"stockNumber"];
         
         
     }
@@ -67,6 +68,7 @@
     [aCoder encodeObject:self.gainOrLoseArray forKey:@"gainOrLoseArray"];
     [aCoder encodeObject:self.totalGain forKey:@"totalGain"];
     [aCoder encodeObject:self.sellStockDate forKey:@"sellStockDate"];
+    [aCoder encodeObject:self.stockNumber forKey:@"stockNumber"];
 }
 
 

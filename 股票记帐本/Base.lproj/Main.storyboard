@@ -43,12 +43,12 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o18-ev-1yw">
                                 <rect key="frame" x="0.0" y="490" width="600" height="5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="YYx-YB-Rlw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -142,34 +142,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券名称－" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Y0-wT-Wgm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券名称－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2Y0-wT-Wgm">
                                 <rect key="frame" x="38" y="97" width="130" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="3JU-bu-MOc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="a1d-SM-Dod"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入数量－" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="617-YS-Kr0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入数量－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="617-YS-Kr0">
                                 <rect key="frame" x="432" y="150" width="130" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="YBx-vm-IlC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="On4-aD-FlP"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券号码－" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-wZ-dhX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券号码－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-wZ-dhX">
                                 <rect key="frame" x="432" y="97" width="130" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="IJe-od-7ci"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入价格－" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pY-eF-nmC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入价格－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4pY-eF-nmC">
                                 <rect key="frame" x="38" y="150" width="130" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="9h3-cR-BVW"/>
+                                </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4pY-eF-nmC" firstAttribute="top" secondItem="2Y0-wT-Wgm" secondAttribute="bottom" constant="23" id="1LZ-jY-6UO"/>
                             <constraint firstItem="TEy-wZ-dhX" firstAttribute="leading" secondItem="617-YS-Kr0" secondAttribute="leading" id="6xv-Mw-JNS"/>
@@ -189,7 +201,7 @@
                                 <action selector="cancle:" destination="97O-PE-XYR" id="XFy-At-Puc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="r0y-Hs-8bY">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="r0y-Hs-8bY">
                             <connections>
                                 <action selector="Done:" destination="97O-PE-XYR" id="Qv8-6T-66k"/>
                             </connections>
@@ -198,13 +210,14 @@
                     <connections>
                         <outlet property="buyNumber" destination="617-YS-Kr0" id="lVI-Rx-s6U"/>
                         <outlet property="buyPrice" destination="4pY-eF-nmC" id="N7p-Jl-DdL"/>
+                        <outlet property="doneButton" destination="r0y-Hs-8bY" id="txM-vP-rwj"/>
                         <outlet property="nameOfStock" destination="2Y0-wT-Wgm" id="RYq-c2-tRF"/>
                         <outlet property="numberOfStock" destination="TEy-wZ-dhX" id="O8l-CJ-pa0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyH-b8-Ep0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="-304"/>
+            <point key="canvasLocation" x="3196" y="-352"/>
         </scene>
         <!--History Trade View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -236,12 +249,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km7-32-3YS">
                                 <rect key="frame" x="0.0" y="490" width="600" height="5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="uEw-mx-Nkz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bL3-Xf-tNU">
@@ -301,11 +314,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--交易-->
+        <!--交 易-->
         <scene sceneID="WJk-55-Edx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jjr-bn-fPG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="交易" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="交 易" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SSE-ac-r5z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -350,7 +363,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出数量－" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idw-E8-pLJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出数量－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="idw-E8-pLJ">
                                 <rect key="frame" x="469" y="89" width="111" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="Pmz-s8-1EQ"/>
@@ -358,7 +371,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出价格－" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-Ca-XO8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出价格－" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-Ca-XO8">
                                 <rect key="frame" x="20" y="89" width="108" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="Iu2-Ru-P89"/>
@@ -368,7 +381,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9W-RW-hiW">
                                 <rect key="frame" x="0.0" y="137" width="600" height="5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="Ssu-qC-jHJ"/>
                                 </constraints>
@@ -416,11 +429,11 @@
             </objects>
             <point key="canvasLocation" x="2396" y="-648"/>
         </scene>
-        <!--历史交易-->
+        <!--历 史-->
         <scene sceneID="ZTb-jY-N51">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PUg-i8-C88" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="历史交易" image="second" id="FWB-eN-gJF" userLabel="历史交易"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="历 史" image="second" id="FWB-eN-gJF" userLabel="历 史"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cMX-5b-XzF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

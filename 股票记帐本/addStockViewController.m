@@ -42,6 +42,10 @@
     [self.buyPrice resignFirstResponder];
     [self.numberOfStock resignFirstResponder];
 }
+- (void)showAlert:(NSString *)showMessage{
+    UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:showMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
+}
 
 - (IBAction)cancle:(id)sender {
     [self.delegate addStockViewControllerDidCancel:self];
@@ -56,11 +60,19 @@
     stockData *stockdata=[[stockData alloc]init];
     stockdata.nameOfStock=self.nameOfStock.text;
     stockdata.buyNumber=self.buyNumber.text;
-    stockdata.buyPrice=self.buyPrice.text;
+    stockdata.buyPrice=[NSString stringWithFormat:@"%.2f",[self.buyPrice.text floatValue]];
+    stockdata.stockNumber=self.numberOfStock.text;
     stockdata.buyTime=[dateFormatter stringFromDate:[NSDate date]];
 //    stockdata.numberOfHolding=self.buyNumber.text;
 //    stockdata.buyPriceAndNumebr=[NSString stringWithFormat:@"%@/%@",self.buyPrice.text,self.buyNumber.text];
+//    if (self.nameOfStock.text!=nil&&self.buyNumber.text!=nil&&self.buyPrice.text!=nil&&self.numberOfStock.text!=nil) {
+//        [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
+//    }else{
+//        [self showAlert:@"请输入正确的值"];
+//    }
+    
     [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
+    
    
 }
 
@@ -76,4 +88,11 @@
 //checklist.iconName = _iconName;
 //
 //[self.delegate listDetailViewController:self didFinishAddingChecklist:checklist];
+- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+//    NSString *newText=[theTextField.text stringByReplacingCharactersInRange:range withString:string];
+    self.doneButton.enabled=([self.nameOfStock.text length]>0&&[self.numberOfStock.text length]>0&&[self.buyNumber.text length]>0&&[self.buyPrice.text length]>0);
+    NSLog(@"enabled%d",self.doneButton.enabled);
+    return YES;
+}
 @end
