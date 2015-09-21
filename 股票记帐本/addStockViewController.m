@@ -65,34 +65,46 @@
     stockdata.buyTime=[dateFormatter stringFromDate:[NSDate date]];
 //    stockdata.numberOfHolding=self.buyNumber.text;
 //    stockdata.buyPriceAndNumebr=[NSString stringWithFormat:@"%@/%@",self.buyPrice.text,self.buyNumber.text];
-//    if (self.nameOfStock.text!=nil&&self.buyNumber.text!=nil&&self.buyPrice.text!=nil&&self.numberOfStock.text!=nil) {
-//        [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
-//    }else{
-//        [self showAlert:@"请输入正确的值"];
-//    }
     
-    [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
+    if ([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text]) {
+        [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
+    }else{
+        [self showAlert:@"请输入正确的值"];
+    }
+    
+//    [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
     
    
 }
 
-//@property (copy, nonatomic) NSString *nameOfStock;
-//@property (copy, nonatomic) NSString *timeOfDeal;
-//@property (copy, nonatomic) NSString *buyPriceAndNumebr;
-//@property (copy, nonatomic) NSString *numberOfHolding;
-//@property (copy, nonatomic) NSString *gainOrLose;
 
 
-//Checklist *checklist = [[Checklist alloc] init];
-//checklist.name = self.textField.text;
-//checklist.iconName = _iconName;
-//
-//[self.delegate listDetailViewController:self didFinishAddingChecklist:checklist];
-- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-//    NSString *newText=[theTextField.text stringByReplacingCharactersInRange:range withString:string];
-    self.doneButton.enabled=([self.nameOfStock.text length]>0&&[self.numberOfStock.text length]>0&&[self.buyNumber.text length]>0&&[self.buyPrice.text length]>0);
-    NSLog(@"enabled%d",self.doneButton.enabled);
-    return YES;
+//- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+////    NSString *newText=[theTextField.text stringByReplacingCharactersInRange:range withString:string];
+//  
+//    self.doneButton.enabled=([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text]);
+//    return YES;
+//}
+
+//判断是否为数字
+- (BOOL)isPureInt:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
+}
+
+- (BOOL)isPureFloat:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    float val;
+    return[scan scanFloat:&val] && [scan isAtEnd];
+}
+
+- (BOOL)isPureNumber:(NSString *)string{
+    if ([self isPureFloat:string]||[self isPureFloat:string]) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 @end

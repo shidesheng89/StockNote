@@ -25,6 +25,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.historyTableView reloadData];
+    [self setTotalGainSignAndColor];
 }
 
 - (void)viewDidLoad {
@@ -36,7 +37,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
     self.historyDataModel=[[historyDataModel alloc]init];
-    [self setTotalGainSignAndColor];
+    
     
     //初始化搜索栏
     _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];

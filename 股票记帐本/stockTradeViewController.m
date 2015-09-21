@@ -24,6 +24,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 @implementation stockTradeViewController{
     NSInteger _selectedIndexPathRow;
     NSUInteger _theMountOfSelling;
+
    
 }
 //- (id)initWithCoder:(NSCoder *)aDecoder{
@@ -35,8 +36,9 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //}
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     [self.tableview reloadData];
+    [self setTotalGainSignAndColor];
 }
 
 - (void)viewDidLoad {
@@ -51,7 +53,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     self.dataModel=[[DataModel alloc]init];
     self.historyDataModel=[[historyDataModel alloc]init];
-    [self setTotalGainSignAndColor];
+    
     
     //初始化搜索栏
     _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
@@ -62,7 +64,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     self.tableview.tableHeaderView=self.searchController.searchBar;
     _searchController.searchBar.placeholder=@"-输入证券名称-";
     
-  
     
 }
 
@@ -171,6 +172,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.dataModel saveData];
+    [self setTotalGainSignAndColor];
 }
 /*
 #pragma mark - Navigation
@@ -214,7 +216,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         [self.historyDataModel.historyData insertObject:stockdata atIndex:0];
         [self.dataModel.Data removeObjectAtIndex:_selectedIndexPathRow];
         [self.historyDataModel saveHistoryData];
-        [self.historyTradeViewController.historyTableView reloadData];
+//        [self.historyTradeViewController.historyTableView reloadData];
+        NSLog(@"11111111111111111");
         
     }
     [self.dataModel saveData];
@@ -380,5 +383,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         self.totalGain.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
     }
 }
+
+
 
 @end

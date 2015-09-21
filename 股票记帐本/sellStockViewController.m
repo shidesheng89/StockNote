@@ -108,33 +108,39 @@
     NSInteger sellMOunt=[self.numberOfSell.text integerValue];
     NSString *gain=[NSString stringWithFormat:@"%.0f",(sellPriceValue-buyPriceValue)*sellMOunt];
     
-    if (MountOfHolding>=0) {
-        
-        //计算单只股票的盈亏
-        [self.stockdata.gainOrLoseArray insertObject:gain atIndex:0];
-        NSNumber *gainOrLose=[self.stockdata.gainOrLoseArray valueForKeyPath:@"@sum.floatValue"];
-        self.stockdata.gainOrLose=[NSString stringWithFormat:@"%@",gainOrLose];
-        NSLog(@"gainOrLoseArray%@",self.stockdata.gainOrLoseArray);
-        
-        self.stockdata.numberOfHolding=[NSString stringWithFormat:@"%ld",(long)MountOfHolding];
-        NSString *selldata=[NSString stringWithFormat:@"以%@元每股卖出%@股,盈利 %@",self.priceOfSell.text,self.numberOfSell.text,gain];
-        [self.stockdata.sellData insertObject:selldata atIndex:0];
-        [self.stockdata.sellStockDate insertObject:[self sellStockDate] atIndex:0];
-
-        
-        [self.delegate sellStockViewController:self didFinishAddingSellStock:self.stockdata];
-        [self.tableView reloadData];
-
-    }else{
+    if (![self isPureNumber:self.priceOfSell.text ] || ![self isPureNumber:self.numberOfSell.text]) {
         [self.stockdata.sellPrice removeObjectAtIndex:0];
         [self.stockdata.sellMount removeObjectAtIndex:0];
-//        NSLog(@"%@",self.stockdata.buyNumber);
-        [self showAlert:@"请输入正确的卖出数量"];
-        
+        [self showAlert:@"请输入正确的值"];
+    }else{
+        if (MountOfHolding>=0) {
+            //计算单只股票的盈亏
+            [self.stockdata.gainOrLoseArray insertObject:gain atIndex:0];
+            NSNumber *gainOrLose=[self.stockdata.gainOrLoseArray valueForKeyPath:@"@sum.floatValue"];
+            self.stockdata.gainOrLose=[NSString stringWithFormat:@"%@",gainOrLose];
+            NSLog(@"gainOrLoseArray%@",self.stockdata.gainOrLoseArray);
+            
+            self.stockdata.numberOfHolding=[NSString stringWithFormat:@"%ld",(long)MountOfHolding];
+            NSLog(@"numberOfHolding%@",self.stockdata.numberOfHolding);
+            NSString *selldata=[NSString stringWithFormat:@"以%@元每股卖出%@股,盈利 %@",self.priceOfSell.text,self.numberOfSell.text,gain];
+            [self.stockdata.sellData insertObject:selldata atIndex:0];
+            [self.stockdata.sellStockDate insertObject:[self sellStockDate] atIndex:0];
+            
+            [self.delegate sellStockViewController:self didFinishAddingSellStock:self.stockdata];
+            [self.tableView reloadData];
+            //清空文本框
+            self.priceOfSell.text=@"";
+            self.numberOfSell.text=@"";
+            
+        }else{
+            [self.stockdata.sellPrice removeObjectAtIndex:0];
+            [self.stockdata.sellMount removeObjectAtIndex:0];
+            //        NSLog(@"%@",self.stockdata.buyNumber);
+            [self showAlert:@"请输入正确的卖出数量"];
+            
+        }
     }
     [self dismissKeyBoard];
-    self.priceOfSell.text=@"";
-    self.numberOfSell.text=@"";
     
 //    [self.stockdata.sellData addObject:selldata];
     
@@ -202,5 +208,26 @@
 //        _sellData=[[NSMutableArray alloc]initWithCapacity:20];
 //    }
 //}
+
+//判断是否为数字
+- (BOOL)isPureInt:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
+}
+
+- (BOOL)isPureFloat:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    float val;
+    return[scan scanFloat:&val] && [scan isAtEnd];
+}
+
+- (BOOL)isPureNumber:(NSString *)string{
+    if ([self isPureFloat:string]||[self isPureFloat:string]) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
 
 @end
