@@ -13,14 +13,6 @@
 - (id)init{
     //当用户添加一个新的stockdata到应用中时会调用常规init方法
     if ((self=[super init])) {
-//        self.nameOfStock=[[NSMutableArray alloc]initWithCapacity:20];
-//        self.timeOfDeal=[[NSMutableArray alloc]initWithCapacity:20];
-//        self.buyPriceAndNumebr=[[NSMutableArray alloc]initWithCapacity:20];
-//        self.numberOfHolding=[[NSMutableArray alloc]initWithCapacity:20];
-//        self.gainOrLose=[[NSMutableArray alloc]initWithCapacity:20];
-
-//        
-//        self.stockDataDirectionary=[[NSMutableDictionary alloc] initWithCapacity:100];
         self.sellData=[[NSMutableArray alloc]initWithCapacity:20];
         self.sellMount=[[NSMutableArray alloc]initWithCapacity:20];
         self.sellPrice=[[NSMutableArray alloc]initWithCapacity:20];

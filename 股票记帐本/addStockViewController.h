@@ -14,9 +14,8 @@
 @protocol addStockViewControllerDelegate <NSObject>
 
 - (void)addStockViewControllerDidCancel:(addStockViewController *)controller;
-//- (void)addStockViewController:(addStockViewController *)controller didFinishAddNameOfStock:(UITextField *)nameOfStock didFinishAddNumberOfStock:(UITextField *)NumberOfStock didFinishAddPriceOfStock:(UITextField *)priceOfStock didFinishAddBuyNumber:(UITextField *)buyNumberk;
-
 - (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata;
+
 @end
 
 @interface addStockViewController : UIViewController

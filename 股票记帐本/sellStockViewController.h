@@ -14,10 +14,7 @@
 
 @protocol sellStockViewControllerDelegate <NSObject>
 
-
 - (void)sellStockViewController:(sellStockViewController *)controller didFinishAddingSellStock:(stockData*)stockdata;
-
-//- (void)didFinishComputingTheMountOfSelling:(NSString *)numberOfSell;
 
 @end
 
@@ -30,8 +27,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSell;
 @property (weak, nonatomic) IBOutlet UITextField *priceOfSell;
-//@property (strong,nonatomic) NSMutableArray *sellData;
-//@property (strong,nonatomic) sellData *selldata;
 @property (weak, nonatomic) IBOutlet UITextField *feeOfSell;
 @property (strong,nonatomic) stockData *stockdata;
 @property (strong,nonatomic) DataModel *dataModel;

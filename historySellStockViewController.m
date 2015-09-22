@@ -35,7 +35,6 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    //    stockData *stockdata=self.dataModel.Data[indexPath.row];
     cell.textLabel.text=self.stockdata.sellData[indexPath.row];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"%@  手续费：%@",self.stockdata.sellStockDate[indexPath.row],self.stockdata.sellFee[indexPath.row]];
     cell.detailTextLabel.textColor=[UIColor colorWithWhite:0 alpha:0.7];

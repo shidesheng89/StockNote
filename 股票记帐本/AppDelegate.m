@@ -15,10 +15,6 @@
 @end
 
 @implementation AppDelegate
-//-(void)save{
-//    _dataModel=[[DataModel alloc]init];
-//    [_dataModel saveData];
-//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //设置NavigationBar背景颜色
@@ -26,19 +22,6 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-
-    
-    
-//    _dataModel=[[DataModel alloc]init];
-//    // Override point for customization after application launch.
-//    UINavigationController *navigationController=(UINavigationController*)self.window.rootViewController;
-//    stockTradeViewController *controller=navigationController.viewControllers[3];
-//    controller.dataModel=_dataModel;
-    
-//    _dataModel=[[DataModel alloc]init];
-    // Override point for customization after application launch.
-   
-//    controller.dataModel=_dataModel;
     return YES;
 }
 
@@ -50,7 +33,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    [self save];
 
 }
 
@@ -64,16 +46,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-//    [self save];
 }
 
-//- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-//    if (viewController.tabBarItem.tag==1) {
-//        UINavigationController *navigationctr = (UINavigationController *)viewController;
-//        historyTradeViewController *controller = (historyTradeViewController *)navigationctr.topViewController;
-//        [controller setDataSource];
-//    }
-//    
-//}
 
 @end

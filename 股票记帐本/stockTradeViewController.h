@@ -16,13 +16,9 @@
 
 @interface stockTradeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,addStockViewControllerDelegate,sellStockViewControllerDelegate,UISearchBarDelegate,UISearchResultsUpdating>
 
-//@property (nonatomic,strong) stockData *stockData;
-
 @property (strong, nonatomic) DataModel *dataModel;
 @property (strong, nonatomic) historyDataModel *historyDataModel;
 @property (strong, nonatomic) historyTradeViewController *historyTradeViewController;
 @property (weak, nonatomic) IBOutlet UILabel *totalGain;
-
-
 
 @end

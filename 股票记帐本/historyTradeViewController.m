@@ -60,18 +60,12 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     // Dispose of any resources that can be recreated.
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    return 1;
-//}
-//
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    NSLog(@"%lu",(unsigned long)[self.historyDataModel.historyData count]);
     if (self.searchController.active) {
         return [self.searchData count];
     }else{
         return [self.historyDataModel.historyData count];
     }
-//    return 10;
     
 }
 
@@ -127,12 +121,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
         cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
     }
-
-//    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    if (cell==nil) {
-//        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//    cell.textLabel.text=@"111";
     return cell;
 }
 
@@ -155,11 +143,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     if ([segue.identifier isEqualToString:@"sellStockHistory"]) {
         historySellStockViewController *controller=segue.destinationViewController;
         controller.stockdata=sender;
-        
-//        UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
-//        historySellStockViewController *controller=(historySellStockViewController *)navigationController.topViewController;
-//        controller.stockdata=sender;
-        
     }
 }
 /*
@@ -180,7 +163,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         stockData *stockdata=dataArray[i];
         _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     }
-    //    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
     return _totalGainOrLoseValue;
 }
 
@@ -189,7 +171,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     self.totalGain.text=@"0";
     self.totalGain.textColor=[UIColor colorWithWhite:0 alpha:1];
     float totalGainOrLoseValue=[self computeTotalGain:self.historyDataModel.historyData];
-    NSLog(@"11totalGainOrLoseValue%f",totalGainOrLoseValue);
     if (totalGainOrLoseValue>0) {
         self.totalGain.text=[NSString stringWithFormat:@"+%.0f",totalGainOrLoseValue];
         self.totalGain.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];

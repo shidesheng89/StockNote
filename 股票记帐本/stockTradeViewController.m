@@ -27,16 +27,9 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
    
 }
-//- (id)initWithCoder:(NSCoder *)aDecoder{
-//    if ((self=[super initWithCoder:aDecoder])) {
-//        
-//        self.stockData=[[stockData alloc]init];
-//    }
-//    return self;
-//}
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     [self.tableview reloadData];
     [self setTotalGainSignAndColor];
 }
@@ -111,7 +104,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         stockdata=self.dataModel.Data[indexPath.row];
     }
     cell.nameOfStock.text=stockdata.nameOfStock;
-    cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];//stockdata.buyPrice;
+    cell.buyPriceAndNumebr.text=[NSString stringWithFormat:@"%@/%@",stockdata.buyPrice,stockdata.buyNumber];
     cell.timeOfDeal.text=stockdata.buyTime;
     cell.stockNumber.text=stockdata.stockNumber;
     
@@ -122,12 +115,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     }
     
     //设置单只股票的盈亏格式
-//    if (stockdata.gainOrLose==nil) {
-//        cell.gainOrLose.text=@"0";
-//        cell.percentOfGainOrLose.text=@"0 %";
-//        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
-//        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
-//    }else{
     float ValueOfGainOrLose=[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
     float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
@@ -148,8 +135,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
         cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
     }
-    
-//    }
 
     return cell;
     
@@ -162,9 +147,6 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     _selectedIndexPathRow=indexPath.row;
     
     [self performSegueWithIdentifier:@"sellStock" sender:Data];//跳转之后tableview内的数据依旧可以用
-    //    Checklist *checklist=self.dataModel.lists[indexPath.row];
-    //    [self performSegueWithIdentifier:@"ShowChecklist" sender:checklist];
-    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -194,21 +176,12 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
 - (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata{
     [self.dataModel.Data insertObject:stockdata atIndex:0];
-//    [self.dataModel.Data addObject:stockdata];
     [self.dataModel saveData];
     [self.tableview reloadData];
-
-   
-    //添加时间
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)sellStockViewController:(sellStockViewController *)controller didFinishAddingSellStock:(stockData *)stockdata{
-//    NSUInteger integer=[self.dataModel.Data count]-1;
-//    [self.dataModel.Data removeObjectAtIndex:integer];
-//    [self.dataModel.Data addObject:stockdata];
     [self.dataModel.Data removeObjectAtIndex:_selectedIndexPathRow];
     [self.dataModel.Data insertObject:stockdata atIndex:_selectedIndexPathRow];
     
@@ -216,34 +189,10 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         [self.historyDataModel.historyData insertObject:stockdata atIndex:0];
         [self.dataModel.Data removeObjectAtIndex:_selectedIndexPathRow];
         [self.historyDataModel saveHistoryData];
-//        [self.historyTradeViewController.historyTableView reloadData];
-        NSLog(@"11111111111111111");
-        
     }
     [self.dataModel saveData];
     [self setTotalGainSignAndColor];
-    NSLog(@"111%@",self.dataModel);
-   
 }
-//- (void)didFinishComputingTheMountOfSelling:(NSString *)numberOfSell{
-//    _theMountOfSelling+=[numberOfSell integerValue];
-//}
-//- (void)addStockViewController:(addStockViewController *)controller didFinishAddNameOfStock:(UITextField *)nameOfStock didFinishAddNumberOfStock:(UITextField *)numberOfStock didFinishAddPriceOfStock:(UITextField *)priceOfStock didFinishAddBuyNumber:(UITextField *)buyNumber {
-//    [self.stockData.nameOfStock addObject:nameOfStock.text];
-//    NSString *buyPriceAndNumebr=[NSString stringWithFormat:@"%@/%@",priceOfStock.text,buyNumber.text];
-//    [self.stockData.buyPriceAndNumebr addObject:buyPriceAndNumebr];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    [self.tableview reloadData];
-//    
-//    [self saveData];
-//}
-
-
-//- (void)sellStockViewControllerDidCancel:(sellStockViewController *)controller{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"addStock"]) {
@@ -253,106 +202,11 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         
     }
     else if([segue.identifier isEqualToString:@"sellStock"]){
-//        sellStockViewController *viewController = segue.destinationViewController;
-//        viewController.stockdata = sender;
-       
         sellStockViewController *controller=segue.destinationViewController;
         controller.delegate=self;
         controller.stockdata=sender;
-        
-//        UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
-//        sellStockViewController *controller=(sellStockViewController *)navigationController.topViewController;//为了获取addStockViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
-//        controller.delegate=self;//一旦我们获得了到AddItemViewController对象的引用，就需要将delegate属性设置为self，而self指的是stockTradeViewController
-//        controller.sellData=sender;
-//        NSIndexPath *indexPath=[self.tableview indexPathForCell:sender];//sender参数启示指的就是触发了该segue的控件，在这里就是table view cell中的细节显示按钮。通过它可以找到对应的nidex－path，然后获取要编辑的checklistitem对象的行编号
-        
-//        controller.itemToEdit=self.checklist.items[indexPath.row];
     }
-//    UINavigationController *navigationController=segue.destinationViewController;
-//    
-//    ItemDetailViewController *controller=(ItemDetailViewController*)navigationController.topViewController;
-//    
-//    controller.delegate=self;
-//    
-//    NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];//sender参数启示指的就是触发了该segue的控件，在这里就是table view cell中的细节显示按钮。通过它可以找到对应的nidex－path，然后获取要编辑的checklistitem对象的行编号
-//    
-//    controller.itemToEdit=self.checklist.items[indexPath.row];
 }
-//-(void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingChecklist:(Checklist *)checklist{
-//    //与addItem方法类似，在AddItemViewController添加对象。我们只需要把新的对象添加到_items数组中就可以了。我们通知表视图有一个新的行，然后关闭add items界面
-//    NSInteger newRowIndex=[self.dataModel.lists count];
-//    [self.dataModel.lists addObject:checklist];
-//    
-//    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:newRowIndex inSection:0];
-//    
-//    NSArray *indexPaths=@[indexPath];
-//    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-//    
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-//
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    //通知additemviewcontroller，checklistsviewcontroller是它的代理
-//    if ([segue.identifier isEqualToString:@"AddItem"]) {
-//
-//        UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
-//        
-//        ItemDetailViewController *controller=(ItemDetailViewController*)navigationController.topViewController;//为了获取AddItemViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
-//        
-//        controller.delegate=self;//一旦我们获得了到AddItemViewController对象的引用，就需要将deledgate属性设置为self，而self其实值得是checklistsviewcontroller
-//        
-//    }else if([segue.identifier isEqualToString:@"EditItem"]){
-//        UINavigationController *navigationController=segue.destinationViewController;
-//        
-//        ItemDetailViewController *controller=(ItemDetailViewController*)navigationController.topViewController;
-//        
-//        controller.delegate=self;
-//        
-//        NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];//sender参数启示指的就是触发了该segue的控件，在这里就是table view cell中的细节显示按钮。通过它可以找到对应的nidex－path，然后获取要编辑的checklistitem对象的行编号
-//        
-//        controller.itemToEdit=self.checklist.items[indexPath.row];
-//        
-//    }
-//    
-//}
-
-//- (NSString *)documentsDirectory{
-//    NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);//NSDocumentDirectory表明查找Documents目录的路径，NSUserDomainMask表明讲搜素限制在应用的沙盒内
-//    NSString *documentsDirectory=path[0];//每个应用只有一个Documents目录
-//    NSLog(@"%@",documentsDirectory);
-//    return documentsDirectory;
-//}
-//
-//- (NSString *)dataFilePath{
-//    //创建到checklists.plist的完整路径
-//    return [[self documentsDirectory]stringByAppendingPathComponent:@"stockdata.plist"];
-//}
-//
-//- (void)saveData{
-//    NSMutableData *data=[[NSMutableData alloc]init];
-//    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
-//    [archiver encodeObject:self.stockData forKey:@"stockdata"];//_局部变量，self属性
-//    [archiver finishEncoding];
-//    [data writeToFile:[self dataFilePath] atomically:YES];
-//    //获取sellData数组中的内容，然后分两步讲它转换成二进制数据块，然后写进到文件中，chapter13p5
-//    
-//    
-//}
-//- (void) loadData{
-//    NSString *path=[self dataFilePath];
-//    //检查沙盒中是否存在该文件
-//    if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
-//        //当应用从沙河中找到path.plist文件时，我们无需创建一个新的数组，可以从该文件中加载整个数组和其中内容（savechecklistitem的逆向操作）
-//        NSData *data=[[NSData alloc]initWithContentsOfFile:path];//将文件内容加载到nsdata对象中
-//        NSKeyedUnarchiver *unarchiver=[[NSKeyedUnarchiver alloc]initForReadingWithData:data];//创建一个nskeyedunarchiver对象
-//        self.stockData=[unarchiver decodeObjectForKey:@"stockdata"];
-//        [unarchiver finishDecoding];
-//    }else{
-//        self.stockData=[[stockData alloc]init];
-//    }
-//}
 
 #pragma mark 自定义方法
 //总盈利设置
@@ -362,10 +216,8 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         stockData *stockdata=dataArray[i];
         _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     }
-    //    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
     return _totalGainOrLoseValue;
 }
-
 
 - (void)setTotalGainSignAndColor{
     self.totalGain.text=@"0";

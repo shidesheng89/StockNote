@@ -21,7 +21,6 @@
 - (NSString *)documentsDirectory{
     NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);//NSDocumentDirectory表明查找Documents目录的路径，NSUserDomainMask表明讲搜素限制在应用的沙盒内
     NSString *documentsDirectory=path[0];//每个应用只有一个Documents目录
-    NSLog(@"%@",documentsDirectory);
     return documentsDirectory;
 }
 

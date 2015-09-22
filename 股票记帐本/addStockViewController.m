@@ -18,23 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"添加股票";
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.nameOfStock resignFirstResponder];
@@ -53,7 +41,6 @@
 }
 
 - (IBAction)Done:(id)sender {
-//    [self.delegate addStockViewController:self didFinishAddNameOfStock:self.nameOfStock didFinishAddNumberOfStock:self.numberOfStock didFinishAddPriceOfStock:self.priceOfStock didFinishAddBuyNumber:self.buyNumber];
     //设置时间格式
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yy年MM月dd日"];
@@ -65,8 +52,6 @@
     stockdata.buyPrice=[NSString stringWithFormat:@"%.2f",[self.buyPrice.text floatValue]];
     stockdata.stockNumber=self.numberOfStock.text;
     stockdata.buyTime=[dateFormatter stringFromDate:[NSDate date]];
-//    stockdata.numberOfHolding=self.buyNumber.text;
-//    stockdata.buyPriceAndNumebr=[NSString stringWithFormat:@"%@/%@",self.buyPrice.text,self.buyNumber.text];
     
     if ([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text] && [self isPureNumber:self.buyFee.text]) {
         [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
@@ -74,20 +59,7 @@
         [self showAlert:@"请输入正确的值"];
     }
     
-//    [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
-    
-   
 }
-
-
-
-//- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-////    NSString *newText=[theTextField.text stringByReplacingCharactersInRange:range withString:string];
-//  
-//    self.doneButton.enabled=([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text]);
-//    return YES;
-//}
 
 //判断是否为数字
 - (BOOL)isPureInt:(NSString *)string{
