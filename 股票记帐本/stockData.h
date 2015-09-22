@@ -36,7 +36,9 @@
 @property (strong, nonatomic) NSMutableArray *sellMount;
 @property (strong, nonatomic) NSMutableArray *gainOrLoseArray;
 @property (strong, nonatomic) NSMutableArray *sellStockDate;
+@property (strong, nonatomic) NSMutableArray *sellFee;
 @property (strong, nonatomic) NSString *totalGain;
+@property (strong, nonatomic) NSString *buyFee;
 
 
 @end

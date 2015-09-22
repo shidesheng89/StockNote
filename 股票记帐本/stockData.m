@@ -26,6 +26,7 @@
         self.sellPrice=[[NSMutableArray alloc]initWithCapacity:20];
         self.gainOrLoseArray=[[NSMutableArray alloc]initWithCapacity:20];
         self.sellStockDate=[[NSMutableArray alloc]initWithCapacity:20];
+        self.sellFee=[[NSMutableArray alloc]initWithCapacity:20];
     }
     return self;
 }
@@ -47,6 +48,8 @@
         self.totalGain=[aDecoder decodeObjectForKey:@"totalGain"];
         self.sellStockDate=[aDecoder decodeObjectForKey:@"sellStockDate"];
         self.stockNumber=[aDecoder decodeObjectForKey:@"stockNumber"];
+        self.sellFee=[aDecoder decodeObjectForKey:@"sellFee"];
+        self.buyFee=[aDecoder decodeObjectForKey:@"buyFee"];
         
         
     }
@@ -69,6 +72,8 @@
     [aCoder encodeObject:self.totalGain forKey:@"totalGain"];
     [aCoder encodeObject:self.sellStockDate forKey:@"sellStockDate"];
     [aCoder encodeObject:self.stockNumber forKey:@"stockNumber"];
+    [aCoder encodeObject:self.sellFee forKey:@"sellFee"];
+    [aCoder encodeObject:self.buyFee forKey:@"buyFee"];
 }
 
 

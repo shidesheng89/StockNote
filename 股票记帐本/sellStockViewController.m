@@ -33,6 +33,7 @@
 -(void)dismissKeyBoard{
     [self.numberOfSell resignFirstResponder];
     [self.priceOfSell resignFirstResponder];
+    [self.feeOfSell resignFirstResponder];
 }
 
 - (void)viewDidLoad {
@@ -80,7 +81,7 @@
     }
 //    stockData *stockdata=self.dataModel.Data[indexPath.row];
     cell.textLabel.text=self.stockdata.sellData[indexPath.row];
-    cell.detailTextLabel.text=self.stockdata.sellStockDate[indexPath.row];
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%@  手续费：%@",self.stockdata.sellStockDate[indexPath.row],self.stockdata.sellFee[indexPath.row]];
     cell.detailTextLabel.textColor=[UIColor colorWithWhite:0 alpha:0.7];
     cell.textLabel.font=[UIFont systemFontOfSize:15];
 
@@ -98,6 +99,7 @@
     
     [self.stockdata.sellPrice insertObject:self.priceOfSell.text atIndex:0];
     [self.stockdata.sellMount insertObject:self.numberOfSell.text atIndex:0];
+    [self.stockdata.sellFee insertObject:self.feeOfSell.text atIndex:0];
     //计算持股数量
     NSNumber *totalSell=[self.stockdata.sellMount valueForKeyPath:@"@sum.floatValue"];
     _mountOfBuy=[self.stockdata.buyNumber integerValue];
@@ -105,12 +107,13 @@
     //计算单次交易盈亏数目
     float buyPriceValue=[self.stockdata.buyPrice floatValue];
     float sellPriceValue=[self.priceOfSell.text floatValue];
+    float sellFee=[self.feeOfSell.text floatValue];
     NSInteger sellMOunt=[self.numberOfSell.text integerValue];
-    NSString *gain=[NSString stringWithFormat:@"%.0f",(sellPriceValue-buyPriceValue)*sellMOunt];
-    
+    NSString *gain=[NSString stringWithFormat:@"%.0f",(sellPriceValue-buyPriceValue)*sellMOunt-sellFee];
     if (![self isPureNumber:self.priceOfSell.text ] || ![self isPureNumber:self.numberOfSell.text]) {
         [self.stockdata.sellPrice removeObjectAtIndex:0];
         [self.stockdata.sellMount removeObjectAtIndex:0];
+        [self.stockdata.sellFee removeObjectAtIndex:0];
         [self showAlert:@"请输入正确的值"];
     }else{
         if (MountOfHolding>=0) {
@@ -131,10 +134,12 @@
             //清空文本框
             self.priceOfSell.text=@"";
             self.numberOfSell.text=@"";
+            self.feeOfSell.text=@"";
             
         }else{
             [self.stockdata.sellPrice removeObjectAtIndex:0];
             [self.stockdata.sellMount removeObjectAtIndex:0];
+            [self.stockdata.sellFee removeObjectAtIndex:0];
             //        NSLog(@"%@",self.stockdata.buyNumber);
             [self showAlert:@"请输入正确的卖出数量"];
             

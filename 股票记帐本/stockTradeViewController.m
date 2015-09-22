@@ -122,34 +122,34 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     }
     
     //设置单只股票的盈亏格式
-    if (stockdata.gainOrLose==nil) {
-        cell.gainOrLose.text=@"0";
-        cell.percentOfGainOrLose.text=@"0 %";
-        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
-        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
-    }else{
-        float ValueOfGainOrLose=[stockdata.gainOrLose floatValue];
-        float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
-        float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
-        if (ValueOfGainOrLose>0) {
-            cell.gainOrLose.text=[NSString stringWithFormat:@"+%.0f",ValueOfGainOrLose];
-            cell.gainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
-            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"+%.2f%%",percentOfGainOrLose];
-            cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
-            
-        }else if (ValueOfGainOrLose==0){
-            cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
-            cell.gainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
-            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
-            cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
-        }else if (ValueOfGainOrLose<0){
-            cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
-            cell.gainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
-            cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
-            cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
-        }
+//    if (stockdata.gainOrLose==nil) {
+//        cell.gainOrLose.text=@"0";
+//        cell.percentOfGainOrLose.text=@"0 %";
+//        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+//        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
+//    }else{
+    float ValueOfGainOrLose=[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
+    float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
+    float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
+    if (ValueOfGainOrLose>0) {
+        cell.gainOrLose.text=[NSString stringWithFormat:@"+%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"+%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
         
+    }else if (ValueOfGainOrLose==0){
+        cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
+    }else if (ValueOfGainOrLose<0){
+        cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
+        cell.gainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+        cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
     }
+    
+//    }
 
     return cell;
     
@@ -360,7 +360,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     float _totalGainOrLoseValue = 0.0;
     for (NSUInteger i=0; i<[dataArray count]; i++) {
         stockData *stockdata=dataArray[i];
-        _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue];
+        _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     }
     //    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
     return _totalGainOrLoseValue;

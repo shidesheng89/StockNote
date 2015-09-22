@@ -26,6 +26,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+
     
     
 //    _dataModel=[[DataModel alloc]init];

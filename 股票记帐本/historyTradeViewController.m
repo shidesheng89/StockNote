@@ -24,6 +24,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 //点击该界面时刷新数据
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.historyDataModel=[[historyDataModel alloc]init];
     [self.historyTableView reloadData];
     [self setTotalGainSignAndColor];
 }
@@ -36,7 +37,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     UINib *nib=[UINib nibWithNibName:@"historyStockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
-    self.historyDataModel=[[historyDataModel alloc]init];
+    
     
     
     //初始化搜索栏
@@ -106,7 +107,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     cell.gainOrLose.text=stockdata.gainOrLose;
     cell.stockNumer.text=stockdata.stockNumber;
     //设置单只股票历史收益
-    float ValueOfGainOrLose=[stockdata.gainOrLose floatValue];
+    float ValueOfGainOrLose=[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     float ValueOfStock=[stockdata.buyPrice floatValue]*[stockdata.buyNumber integerValue];
     float percentOfGainOrLose=ValueOfGainOrLose/ValueOfStock*100;
     if (ValueOfGainOrLose>0) {
@@ -177,7 +178,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     float _totalGainOrLoseValue = 0.0;
     for (NSUInteger i=0; i<[dataArray count]; i++) {
         stockData *stockdata=dataArray[i];
-        _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue];
+        _totalGainOrLoseValue=_totalGainOrLoseValue+[stockdata.gainOrLose floatValue]-[stockdata.buyFee floatValue];
     }
     //    NSString *totalGain=[NSString stringWithFormat:@"%.0f",_totalGainOrLoseValue];
     return _totalGainOrLoseValue;
@@ -188,7 +189,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     self.totalGain.text=@"0";
     self.totalGain.textColor=[UIColor colorWithWhite:0 alpha:1];
     float totalGainOrLoseValue=[self computeTotalGain:self.historyDataModel.historyData];
-    NSLog(@"totalGainOrLoseValue%f",totalGainOrLoseValue);
+    NSLog(@"11totalGainOrLoseValue%f",totalGainOrLoseValue);
     if (totalGainOrLoseValue>0) {
         self.totalGain.text=[NSString stringWithFormat:@"+%.0f",totalGainOrLoseValue];
         self.totalGain.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];

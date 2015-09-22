@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *buyNumber;
 @property (weak, nonatomic) NSString *buyTime;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UITextField *buyFee;
 
 - (IBAction)cancle:(id)sender;
 - (IBAction)Done:(id)sender;

@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券名称－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2Y0-wT-Wgm">
-                                <rect key="frame" x="38" y="97" width="130" height="30"/>
+                                <rect key="frame" x="20" y="97" width="130" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="3JU-bu-MOc"/>
                                 </constraints>
@@ -153,8 +153,29 @@
                                     <outlet property="delegate" destination="97O-PE-XYR" id="a1d-SM-Dod"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券号码－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-wZ-dhX">
+                                <rect key="frame" x="450" y="97" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="IJe-od-7ci"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入价格－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4pY-eF-nmC">
+                                <rect key="frame" x="20" y="150" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97O-PE-XYR" id="9h3-cR-BVW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－手续费－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-yD-wZE">
+                                <rect key="frame" x="20" y="203" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入数量－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="617-YS-Kr0">
-                                <rect key="frame" x="432" y="150" width="130" height="30"/>
+                                <rect key="frame" x="450" y="150" width="130" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="YBx-vm-IlC"/>
                                 </constraints>
@@ -164,31 +185,18 @@
                                     <outlet property="delegate" destination="97O-PE-XYR" id="On4-aD-FlP"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－证券号码－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-wZ-dhX">
-                                <rect key="frame" x="432" y="97" width="130" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="97O-PE-XYR" id="IJe-od-7ci"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－买入价格－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4pY-eF-nmC">
-                                <rect key="frame" x="38" y="150" width="130" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="97O-PE-XYR" id="9h3-cR-BVW"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="2yO-yD-wZE" firstAttribute="leading" secondItem="4pY-eF-nmC" secondAttribute="leading" id="0AM-Hx-9MX"/>
                             <constraint firstItem="4pY-eF-nmC" firstAttribute="top" secondItem="2Y0-wT-Wgm" secondAttribute="bottom" constant="23" id="1LZ-jY-6UO"/>
+                            <constraint firstItem="2yO-yD-wZE" firstAttribute="trailing" secondItem="4pY-eF-nmC" secondAttribute="trailing" id="1oQ-CQ-dvp"/>
                             <constraint firstItem="TEy-wZ-dhX" firstAttribute="leading" secondItem="617-YS-Kr0" secondAttribute="leading" id="6xv-Mw-JNS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="617-YS-Kr0" secondAttribute="trailing" constant="18" id="A8u-9M-ZTv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="617-YS-Kr0" secondAttribute="trailing" id="A8u-9M-ZTv"/>
                             <constraint firstItem="2Y0-wT-Wgm" firstAttribute="leading" secondItem="4pY-eF-nmC" secondAttribute="leading" id="E48-gz-Dgx"/>
+                            <constraint firstItem="2yO-yD-wZE" firstAttribute="top" secondItem="4pY-eF-nmC" secondAttribute="bottom" constant="23" id="RbM-wp-dAJ"/>
                             <constraint firstItem="4pY-eF-nmC" firstAttribute="baseline" secondItem="617-YS-Kr0" secondAttribute="baseline" id="Txv-gr-9gc"/>
-                            <constraint firstItem="2Y0-wT-Wgm" firstAttribute="leading" secondItem="8Vb-Jk-zVC" secondAttribute="leadingMargin" constant="18" id="XEF-5r-080"/>
+                            <constraint firstItem="2Y0-wT-Wgm" firstAttribute="leading" secondItem="8Vb-Jk-zVC" secondAttribute="leadingMargin" id="XEF-5r-080"/>
                             <constraint firstItem="TEy-wZ-dhX" firstAttribute="baseline" secondItem="2Y0-wT-Wgm" secondAttribute="baseline" id="Xq0-ZZ-G6E"/>
                             <constraint firstItem="2Y0-wT-Wgm" firstAttribute="trailing" secondItem="4pY-eF-nmC" secondAttribute="trailing" id="YyS-Z0-fJ3"/>
                             <constraint firstItem="2Y0-wT-Wgm" firstAttribute="top" secondItem="N0d-Tt-kok" secondAttribute="bottom" constant="33" id="gVl-b4-zIq"/>
@@ -208,6 +216,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buyFee" destination="2yO-yD-wZE" id="TVH-IW-H6T"/>
                         <outlet property="buyNumber" destination="617-YS-Kr0" id="lVI-Rx-s6U"/>
                         <outlet property="buyPrice" destination="4pY-eF-nmC" id="N7p-Jl-DdL"/>
                         <outlet property="doneButton" destination="r0y-Hs-8bY" id="txM-vP-rwj"/>
@@ -318,7 +327,7 @@
         <scene sceneID="WJk-55-Edx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jjr-bn-fPG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="交 易" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="交 易" image="trade" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SSE-ac-r5z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -349,7 +358,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gG-io-c6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="6"/>
+            <point key="canvasLocation" x="2424" y="6"/>
         </scene>
         <!--Sell Stock View Controller-->
         <scene sceneID="RkV-2a-m5X">
@@ -366,7 +375,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出数量－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="idw-E8-pLJ">
                                 <rect key="frame" x="469" y="89" width="111" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="Pmz-s8-1EQ"/>
+                                    <constraint firstAttribute="width" constant="111" id="IaL-Wu-yCV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -374,42 +383,50 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－卖出价格－" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-Ca-XO8">
                                 <rect key="frame" x="20" y="89" width="108" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="Iu2-Ru-P89"/>
+                                    <constraint firstAttribute="width" constant="108" id="iD1-33-xGg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9W-RW-hiW">
-                                <rect key="frame" x="0.0" y="137" width="600" height="5"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="Ssu-qC-jHJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oof-8K-jQ4">
-                                <rect key="frame" x="0.0" y="142" width="600" height="409"/>
+                                <rect key="frame" x="0.0" y="175" width="600" height="376"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MD9-wr-Z54" id="evc-rb-yDw"/>
                                     <outlet property="delegate" destination="MD9-wr-Z54" id="QT0-K8-iMu"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9W-RW-hiW">
+                                <rect key="frame" x="0.0" y="170" width="600" height="5"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="pfY-qV-d0f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="－手续费－" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oz1-ls-qGj">
+                                <rect key="frame" x="20" y="127" width="108" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u9W-RW-hiW" firstAttribute="leading" secondItem="B5B-9D-fgL" secondAttribute="leading" id="3le-71-pdu"/>
-                            <constraint firstItem="idw-E8-pLJ" firstAttribute="trailing" secondItem="B5B-9D-fgL" secondAttribute="trailingMargin" id="43p-R5-tgW"/>
-                            <constraint firstItem="8OA-Ca-XO8" firstAttribute="top" secondItem="xK6-g4-fjl" secondAttribute="bottom" constant="25" id="49e-uQ-gUz"/>
-                            <constraint firstItem="u9W-RW-hiW" firstAttribute="trailing" secondItem="Oof-8K-jQ4" secondAttribute="trailing" id="AFc-6L-gCb"/>
-                            <constraint firstItem="8OA-Ca-XO8" firstAttribute="leading" secondItem="B5B-9D-fgL" secondAttribute="leadingMargin" id="IVG-9h-Pd6"/>
-                            <constraint firstItem="u9W-RW-hiW" firstAttribute="top" secondItem="8OA-Ca-XO8" secondAttribute="bottom" constant="18" id="KC8-ml-17C"/>
-                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="bottom" secondItem="6sa-OP-dbQ" secondAttribute="top" id="LoJ-X8-C03"/>
-                            <constraint firstAttribute="trailing" secondItem="u9W-RW-hiW" secondAttribute="trailing" id="aoN-RT-Noh"/>
-                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="top" secondItem="u9W-RW-hiW" secondAttribute="bottom" id="dob-EJ-rRR"/>
-                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="leading" secondItem="u9W-RW-hiW" secondAttribute="leading" id="iaK-wM-HZ3"/>
-                            <constraint firstItem="idw-E8-pLJ" firstAttribute="baseline" secondItem="8OA-Ca-XO8" secondAttribute="baseline" id="kY1-ig-F9S"/>
+                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="top" secondItem="u9W-RW-hiW" secondAttribute="bottom" id="5Xe-oK-mqr"/>
+                            <constraint firstItem="oz1-ls-qGj" firstAttribute="leading" secondItem="B5B-9D-fgL" secondAttribute="leadingMargin" id="69X-eA-ZiT"/>
+                            <constraint firstItem="8OA-Ca-XO8" firstAttribute="leading" secondItem="oz1-ls-qGj" secondAttribute="leading" id="FuR-bI-hiN"/>
+                            <constraint firstItem="u9W-RW-hiW" firstAttribute="trailing" secondItem="Oof-8K-jQ4" secondAttribute="trailing" id="JQE-2D-8yZ"/>
+                            <constraint firstItem="8OA-Ca-XO8" firstAttribute="top" secondItem="xK6-g4-fjl" secondAttribute="bottom" constant="25" id="Lfx-mo-VW8"/>
+                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="bottom" secondItem="6sa-OP-dbQ" secondAttribute="top" id="SZL-UB-gIR"/>
+                            <constraint firstItem="8OA-Ca-XO8" firstAttribute="baseline" secondItem="idw-E8-pLJ" secondAttribute="baseline" id="aQF-B9-Zds"/>
+                            <constraint firstItem="idw-E8-pLJ" firstAttribute="trailing" secondItem="B5B-9D-fgL" secondAttribute="trailingMargin" id="dhq-SK-zMc"/>
+                            <constraint firstItem="Oof-8K-jQ4" firstAttribute="leading" secondItem="u9W-RW-hiW" secondAttribute="leading" id="gBM-kl-dgb"/>
+                            <constraint firstItem="u9W-RW-hiW" firstAttribute="leading" secondItem="B5B-9D-fgL" secondAttribute="leading" id="gom-rd-kYY"/>
+                            <constraint firstAttribute="trailing" secondItem="Oof-8K-jQ4" secondAttribute="trailing" id="n1q-e3-e3y"/>
+                            <constraint firstItem="oz1-ls-qGj" firstAttribute="top" secondItem="8OA-Ca-XO8" secondAttribute="bottom" constant="8" symbolic="YES" id="oYg-Cg-P3d"/>
+                            <constraint firstItem="u9W-RW-hiW" firstAttribute="top" secondItem="oz1-ls-qGj" secondAttribute="bottom" constant="13" id="vx2-8q-BJq"/>
+                            <constraint firstItem="oz1-ls-qGj" firstAttribute="trailing" secondItem="8OA-Ca-XO8" secondAttribute="trailing" id="zIH-eH-9g1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nfb-aD-afL" colorLabel="IBBuiltInLabel-Blue">
@@ -420,6 +437,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="feeOfSell" destination="oz1-ls-qGj" id="4qv-E4-Fqw"/>
                         <outlet property="numberOfSell" destination="idw-E8-pLJ" id="Opb-1f-PnM"/>
                         <outlet property="priceOfSell" destination="8OA-Ca-XO8" id="l0S-Q8-Wph"/>
                         <outlet property="tableView" destination="Oof-8K-jQ4" id="9Ft-5I-2dL"/>
@@ -427,13 +445,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyk-eY-ctA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="-648"/>
+            <point key="canvasLocation" x="2544" y="-710"/>
         </scene>
         <!--历 史-->
         <scene sceneID="ZTb-jY-N51">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PUg-i8-C88" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="历 史" image="second" id="FWB-eN-gJF" userLabel="历 史"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="历 史" image="history" id="FWB-eN-gJF" userLabel="历 史"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cMX-5b-XzF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -450,7 +468,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="history" width="30" height="30"/>
+        <image name="trade" width="30" height="30"/>
     </resources>
 </document>

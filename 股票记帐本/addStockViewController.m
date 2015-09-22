@@ -41,6 +41,7 @@
     [self.buyNumber resignFirstResponder];
     [self.buyPrice resignFirstResponder];
     [self.numberOfStock resignFirstResponder];
+    [self.buyFee resignFirstResponder];
 }
 - (void)showAlert:(NSString *)showMessage{
     UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:showMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -60,13 +61,14 @@
     stockData *stockdata=[[stockData alloc]init];
     stockdata.nameOfStock=self.nameOfStock.text;
     stockdata.buyNumber=self.buyNumber.text;
+    stockdata.buyFee=self.buyFee.text;
     stockdata.buyPrice=[NSString stringWithFormat:@"%.2f",[self.buyPrice.text floatValue]];
     stockdata.stockNumber=self.numberOfStock.text;
     stockdata.buyTime=[dateFormatter stringFromDate:[NSDate date]];
 //    stockdata.numberOfHolding=self.buyNumber.text;
 //    stockdata.buyPriceAndNumebr=[NSString stringWithFormat:@"%@/%@",self.buyPrice.text,self.buyNumber.text];
     
-    if ([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text]) {
+    if ([self.nameOfStock.text length]>0 &&[ self.numberOfStock.text length]>0 && [self isPureNumber:self.buyNumber.text ] && [self isPureNumber:self.buyPrice.text] && [self isPureNumber:self.buyFee.text]) {
         [self.delegate addStockViewController:self didFinishAddingStockData:stockdata ];
     }else{
         [self showAlert:@"请输入正确的值"];
