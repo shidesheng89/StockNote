@@ -77,6 +77,24 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.stockdata.gainOrLoseArray removeObjectAtIndex:indexPath.row];
+    NSNumber *gainOrLose=[self.stockdata.gainOrLoseArray valueForKeyPath:@"@sum.floatValue"];
+    self.stockdata.gainOrLose=[NSString stringWithFormat:@"%@",gainOrLose];
+    
+    NSInteger MountOfHolding=[self.stockdata.numberOfHolding integerValue]+[self.stockdata.sellMount[indexPath.row] integerValue];
+    self.stockdata.numberOfHolding=[NSString stringWithFormat:@"%ld",(long)MountOfHolding];
+    
+    [self.stockdata.sellData removeObjectAtIndex:indexPath.row];
+    [self.stockdata.sellStockDate removeObjectAtIndex:indexPath.row];
+    [self.stockdata.sellFee removeObjectAtIndex:indexPath.row];
+    [self.stockdata.sellPrice removeObjectAtIndex:indexPath.row];
+    [self.stockdata.sellMount removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths = @[indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.delegate sellStockViewController:self didFinishAddingSellStock:self.stockdata];
+}
+
 - (NSString *)sellStockDate{
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy年MM月dd日"];
