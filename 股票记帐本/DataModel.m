@@ -25,7 +25,7 @@
 }
 
 - (NSString *)dataFilePath{
-    //创建到checklists.plist的完整路径
+    //创建到plist的完整路径
     return [[self documentsDirectory]stringByAppendingPathComponent:@"data.plist"];
 }
 

@@ -42,8 +42,6 @@
         self.stockNumber=[aDecoder decodeObjectForKey:@"stockNumber"];
         self.sellFee=[aDecoder decodeObjectForKey:@"sellFee"];
         self.buyFee=[aDecoder decodeObjectForKey:@"buyFee"];
-        
-        
     }
     return self;
 }
