@@ -12,6 +12,7 @@ static NSString *cellIdentifier=@"cellIdentifier";
 
 @interface selectedStockViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UISearchController *searchController;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
@@ -20,7 +21,9 @@ static NSString *cellIdentifier=@"cellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
+    _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
+    _searchController.searchBar=_searchBar;
+//    self.tableView.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
     // Do any additional setup after loading the view.
 }
 
@@ -40,6 +43,11 @@ static NSString *cellIdentifier=@"cellIdentifier";
     }
     cell.textLabel.text=@"1";
     return cell;
+}
+
+#pragma mark searchBar
+- (UIBarPosition) positionForBar:(id<UIBarPositioning>)bar{
+    return UIBarPositionTopAttached;//The search bar is “attached” to the top of the screen
 }
 
 /*

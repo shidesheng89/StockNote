@@ -335,9 +335,32 @@
                     <view key="view" contentMode="scaleToFill" id="J9Q-Sy-6Uc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-dd-MlS">
+                                <rect key="frame" x="20" y="40" width="560" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W0A-e7-6d6">
+                                <rect key="frame" x="20" y="84" width="560" height="467"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="leading" secondItem="bhE-dd-MlS" secondAttribute="leading" id="DFG-zb-ZDD"/>
+                            <constraint firstItem="bhE-dd-MlS" firstAttribute="trailing" secondItem="W0A-e7-6d6" secondAttribute="trailing" id="RRx-LE-UjH"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="top" secondItem="bhE-dd-MlS" secondAttribute="bottom" id="a2X-aE-rqR"/>
+                            <constraint firstItem="bhE-dd-MlS" firstAttribute="leading" secondItem="J9Q-Sy-6Uc" secondAttribute="leadingMargin" id="az9-60-MLB"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="trailing" secondItem="J9Q-Sy-6Uc" secondAttribute="trailingMargin" id="ftb-Ev-48b"/>
+                            <constraint firstItem="bhE-dd-MlS" firstAttribute="top" secondItem="y2H-Hr-RYd" secondAttribute="bottom" constant="20" id="iu8-Lm-n9e"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="bottom" secondItem="5j3-4r-545" secondAttribute="top" id="yEV-PM-vsu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="自选" id="UnA-RP-Ogu"/>
+                    <connections>
+                        <outlet property="searchBar" destination="bhE-dd-MlS" id="cIa-qJ-LFA"/>
+                        <outlet property="tableView" destination="W0A-e7-6d6" id="75Q-Ix-aSJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzW-Mf-cLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

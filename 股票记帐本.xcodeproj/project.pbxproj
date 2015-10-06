@@ -26,7 +26,6 @@
 		1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */; };
 		1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B561B96D3AC004A196D /* addStockViewController.m */; };
 		1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B591B96EE5C004A196D /* stockData.m */; };
-		1BC3A0F51BC3A737005D198D /* selectedStockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3A0F41BC3A737005D198D /* selectedStockViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		1BC8FCE21BAAA6580097D520 /* historySellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */; };
 		1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */; };
 		1BE91E7A1B9EC70400656B44 /* sellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE91E791B9EC70400656B44 /* sellStockViewController.m */; };
@@ -75,7 +74,6 @@
 		1BA50B561B96D3AC004A196D /* addStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addStockViewController.m; path = "股票记帐本/addStockViewController.m"; sourceTree = "<group>"; };
 		1BA50B581B96EE5C004A196D /* stockData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stockData.h; path = "股票记帐本/stockData.h"; sourceTree = "<group>"; };
 		1BA50B591B96EE5C004A196D /* stockData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = stockData.m; path = "股票记帐本/stockData.m"; sourceTree = "<group>"; };
-		1BC3A0F41BC3A737005D198D /* selectedStockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectedStockViewController.xib; sourceTree = "<group>"; };
 		1BC8FCE01BAAA6580097D520 /* historySellStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historySellStockViewController.h; sourceTree = "<group>"; };
 		1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historySellStockViewController.m; sourceTree = "<group>"; };
 		1BDF3D691BA2BA74007BEAF6 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = "股票记帐本/DataModel.h"; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				1B0BDD2C1BC39484001D81A3 /* selectedStockTableViewCell.xib */,
 				1B0BDD381BC39E82001D81A3 /* selectedStockViewController.h */,
 				1B0BDD391BC39E82001D81A3 /* selectedStockViewController.m */,
-				1BC3A0F41BC3A737005D198D /* selectedStockViewController.xib */,
 			);
 			name = "selected Stock Files";
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				1B6B07861B95F28800A152F2 /* LaunchScreen.xib in Resources */,
 				1B45DB7E1BAEC2E300AFE1CE /* Info.plist in Resources */,
 				1B6B07831B95F28800A152F2 /* Images.xcassets in Resources */,
-				1BC3A0F51BC3A737005D198D /* selectedStockViewController.xib in Resources */,
 				1B45DB831BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib in Resources */,
 				1B0BDD2E1BC39484001D81A3 /* selectedStockTableViewCell.xib in Resources */,
 				1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */,
