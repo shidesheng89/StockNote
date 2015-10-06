@@ -96,7 +96,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    stockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    stockTradeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];//forIndexPath:indexPath lets the table view be a bit smarter,但只有当使用nib文件时有效
     stockData *stockdata;
     if (self.searchController.active) {
         stockdata=self.searchData[indexPath.row];
