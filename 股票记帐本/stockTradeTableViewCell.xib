@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -18,6 +18,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-Wf-McX">
                         <rect key="frame" x="18" y="6" width="77" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="xbW-2H-e2Y"/>
                         </constraints>
@@ -26,6 +27,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="买入价／数量：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-Vq-bV2">
                         <rect key="frame" x="18" y="46" width="70" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Xhz-M6-bG8"/>
                         </constraints>
@@ -35,6 +37,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="持仓：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03q-FI-NJk">
                         <rect key="frame" x="18" y="62" width="31" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="n1r-9b-4t9"/>
                             <constraint firstAttribute="width" constant="31" id="xGJ-HB-MRy"/>
@@ -45,18 +48,21 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntl-E6-QYB">
                         <rect key="frame" x="87" y="46" width="87" height="15"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaG-Oa-4gO">
                         <rect key="frame" x="49" y="62" width="79" height="15"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95c-yS-PGY">
                         <rect key="frame" x="192" y="2" width="90" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="BGF-kR-I1r"/>
                         </constraints>
@@ -66,12 +72,14 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhi-ZF-TXx">
                         <rect key="frame" x="192" y="21" width="90" height="28"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUS-Yu-e99">
                         <rect key="frame" x="18" y="28" width="85" height="17"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="UXy-xh-J1t"/>
                         </constraints>
@@ -81,11 +89,13 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6k-UQ-gmj">
                         <rect key="frame" x="192" y="50" width="90" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="H6k-UQ-gmj" firstAttribute="leading" secondItem="Ntl-E6-QYB" secondAttribute="trailing" constant="18" id="01a-Uq-482"/>
                     <constraint firstItem="1Lz-Wf-McX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="2Za-uf-l8I"/>
@@ -118,6 +128,7 @@
                     <constraint firstItem="yaG-Oa-4gO" firstAttribute="firstBaseline" secondItem="03q-FI-NJk" secondAttribute="firstBaseline" id="yFk-jZ-2qg"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="buyPriceAndNumebr" destination="Ntl-E6-QYB" id="PBY-q0-PLx"/>
                 <outlet property="gainOrLose" destination="hhi-ZF-TXx" id="qql-T4-1ed"/>

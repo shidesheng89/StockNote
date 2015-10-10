@@ -78,6 +78,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    NSLog(@"111111");
     NSString *searchString = [self.searchController.searchBar text];
     if (self.searchData!= nil) {
         [self.searchData removeAllObjects];
@@ -126,9 +127,9 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
         
     }else if (ValueOfGainOrLose==0){
         cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
-        cell.gainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
+        cell.gainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
         cell.percentOfGainOrLose.text=[NSString stringWithFormat:@"%.2f%%",percentOfGainOrLose];
-        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:1 alpha:1];
+        cell.percentOfGainOrLose.textColor=[UIColor colorWithWhite:0 alpha:1];
     }else if (ValueOfGainOrLose<0){
         cell.gainOrLose.text=[NSString stringWithFormat:@"%.0f",ValueOfGainOrLose];
         cell.gainOrLose.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];

@@ -10,6 +10,7 @@
 		1B0BDD2D1BC39484001D81A3 /* selectedStockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BDD2B1BC39484001D81A3 /* selectedStockTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		1B0BDD2E1BC39484001D81A3 /* selectedStockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BDD2C1BC39484001D81A3 /* selectedStockTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1B0BDD3A1BC39E82001D81A3 /* selectedStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BDD391BC39E82001D81A3 /* selectedStockViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1B221CD71BC79CDA00058BE3 /* nameAndCode.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B221CD61BC79CDA00058BE3 /* nameAndCode.txt */; settings = {ASSET_TAGS = (); }; };
 		1B45DB7E1BAEC2E300AFE1CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B45DB7D1BAEC2E300AFE1CE /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		1B45DB821BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B45DB801BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		1B45DB831BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B45DB811BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -26,9 +27,13 @@
 		1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B07A01B95F50500A152F2 /* stockTradeTableViewCell.xib */; };
 		1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B561B96D3AC004A196D /* addStockViewController.m */; };
 		1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA50B591B96EE5C004A196D /* stockData.m */; };
+		1BB0AB9F1BC8E3250088AC19 /* tabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB0AB9D1BC8E3250088AC19 /* tabTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		1BB0ABA01BC8E3250088AC19 /* tabTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB0AB9E1BC8E3250088AC19 /* tabTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1BC8FCE21BAAA6580097D520 /* historySellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */; };
+		1BCC92B11BC652B70010F58B /* SearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCC92B01BC652B70010F58B /* SearchResults.m */; settings = {ASSET_TAGS = (); }; };
 		1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */; };
 		1BE91E7A1B9EC70400656B44 /* sellStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE91E791B9EC70400656B44 /* sellStockViewController.m */; };
+		B5EF42E3D54BE4C068DF0B83 /* libPods-股票记帐本.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5802CC129BA828466D6216F /* libPods-股票记帐本.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0871531D9883FA3FB0AFAC30 /* Pods-股票记帐本.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-股票记帐本.debug.xcconfig"; path = "Pods/Target Support Files/Pods-股票记帐本/Pods-股票记帐本.debug.xcconfig"; sourceTree = "<group>"; };
+		1375023BF85E71B37089922C /* Pods-股票记帐本.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-股票记帐本.release.xcconfig"; path = "Pods/Target Support Files/Pods-股票记帐本/Pods-股票记帐本.release.xcconfig"; sourceTree = "<group>"; };
 		1B0BDD2A1BC39484001D81A3 /* selectedStockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectedStockTableViewCell.h; sourceTree = "<group>"; };
 		1B0BDD2B1BC39484001D81A3 /* selectedStockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectedStockTableViewCell.m; sourceTree = "<group>"; };
 		1B0BDD2C1BC39484001D81A3 /* selectedStockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectedStockTableViewCell.xib; sourceTree = "<group>"; };
 		1B0BDD381BC39E82001D81A3 /* selectedStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectedStockViewController.h; sourceTree = "<group>"; };
 		1B0BDD391BC39E82001D81A3 /* selectedStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectedStockViewController.m; sourceTree = "<group>"; };
+		1B221CD61BC79CDA00058BE3 /* nameAndCode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nameAndCode.txt; sourceTree = "<group>"; };
 		1B45DB7D1BAEC2E300AFE1CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "股票记帐本Tests/Info.plist"; sourceTree = SOURCE_ROOT; };
 		1B45DB7F1BAEC6B800AFE1CE /* historyStockTradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = historyStockTradeTableViewCell.h; path = "股票记帐本/historyStockTradeTableViewCell.h"; sourceTree = "<group>"; };
 		1B45DB801BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = historyStockTradeTableViewCell.m; path = "股票记帐本/historyStockTradeTableViewCell.m"; sourceTree = "<group>"; };
@@ -74,12 +82,18 @@
 		1BA50B561B96D3AC004A196D /* addStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addStockViewController.m; path = "股票记帐本/addStockViewController.m"; sourceTree = "<group>"; };
 		1BA50B581B96EE5C004A196D /* stockData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stockData.h; path = "股票记帐本/stockData.h"; sourceTree = "<group>"; };
 		1BA50B591B96EE5C004A196D /* stockData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = stockData.m; path = "股票记帐本/stockData.m"; sourceTree = "<group>"; };
+		1BB0AB9C1BC8E3250088AC19 /* tabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabTableViewCell.h; sourceTree = "<group>"; };
+		1BB0AB9D1BC8E3250088AC19 /* tabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tabTableViewCell.m; sourceTree = "<group>"; };
+		1BB0AB9E1BC8E3250088AC19 /* tabTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabTableViewCell.xib; sourceTree = "<group>"; };
 		1BC8FCE01BAAA6580097D520 /* historySellStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historySellStockViewController.h; sourceTree = "<group>"; };
 		1BC8FCE11BAAA6580097D520 /* historySellStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historySellStockViewController.m; sourceTree = "<group>"; };
+		1BCC92AF1BC652B70010F58B /* SearchResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResults.h; sourceTree = "<group>"; };
+		1BCC92B01BC652B70010F58B /* SearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResults.m; sourceTree = "<group>"; };
 		1BDF3D691BA2BA74007BEAF6 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = "股票记帐本/DataModel.h"; sourceTree = "<group>"; };
 		1BDF3D6A1BA2BA74007BEAF6 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = "股票记帐本/DataModel.m"; sourceTree = "<group>"; };
 		1BE91E781B9EC70400656B44 /* sellStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sellStockViewController.h; path = "股票记帐本/sellStockViewController.h"; sourceTree = "<group>"; };
 		1BE91E791B9EC70400656B44 /* sellStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sellStockViewController.m; path = "股票记帐本/sellStockViewController.m"; sourceTree = "<group>"; };
+		E5802CC129BA828466D6216F /* libPods-股票记帐本.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-股票记帐本.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EF42E3D54BE4C068DF0B83 /* libPods-股票记帐本.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F8DD190E74B93BEA1A971D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0871531D9883FA3FB0AFAC30 /* Pods-股票记帐本.debug.xcconfig */,
+				1375023BF85E71B37089922C /* Pods-股票记帐本.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1B0BDD291BC393F8001D81A3 /* selected Stock Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +132,11 @@
 				1B0BDD2C1BC39484001D81A3 /* selectedStockTableViewCell.xib */,
 				1B0BDD381BC39E82001D81A3 /* selectedStockViewController.h */,
 				1B0BDD391BC39E82001D81A3 /* selectedStockViewController.m */,
+				1BCC92AF1BC652B70010F58B /* SearchResults.h */,
+				1BCC92B01BC652B70010F58B /* SearchResults.m */,
+				1BB0AB9C1BC8E3250088AC19 /* tabTableViewCell.h */,
+				1BB0AB9D1BC8E3250088AC19 /* tabTableViewCell.m */,
+				1BB0AB9E1BC8E3250088AC19 /* tabTableViewCell.xib */,
 			);
 			name = "selected Stock Files";
 			sourceTree = "<group>";
@@ -156,6 +185,8 @@
 				1B6B07711B95F28800A152F2 /* 股票记帐本 */,
 				1B6B078E1B95F28800A152F2 /* 股票记帐本Tests */,
 				1B6B07701B95F28800A152F2 /* Products */,
+				0F8DD190E74B93BEA1A971D7 /* Pods */,
+				D74A0DF94A8C9412AF2B0AA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +218,7 @@
 		1B6B07721B95F28800A152F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B221CD61BC79CDA00058BE3 /* nameAndCode.txt */,
 				1B45DB7D1BAEC2E300AFE1CE /* Info.plist */,
 				1B6B07741B95F28800A152F2 /* main.m */,
 			);
@@ -210,6 +242,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D74A0DF94A8C9412AF2B0AA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5802CC129BA828466D6216F /* libPods-股票记帐本.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B6B07951B95F28800A152F2 /* Build configuration list for PBXNativeTarget "股票记帐本" */;
 			buildPhases = (
+				A630F2F53D348C150BDA3358 /* Check Pods Manifest.lock */,
 				1B6B076B1B95F28800A152F2 /* Sources */,
 				1B6B076C1B95F28800A152F2 /* Frameworks */,
 				1B6B076D1B95F28800A152F2 /* Resources */,
+				9E80CA8D18D19ED92F7D3DAE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,9 +338,11 @@
 				1B6B07861B95F28800A152F2 /* LaunchScreen.xib in Resources */,
 				1B45DB7E1BAEC2E300AFE1CE /* Info.plist in Resources */,
 				1B6B07831B95F28800A152F2 /* Images.xcassets in Resources */,
+				1B221CD71BC79CDA00058BE3 /* nameAndCode.txt in Resources */,
 				1B45DB831BAEC6B800AFE1CE /* historyStockTradeTableViewCell.xib in Resources */,
 				1B0BDD2E1BC39484001D81A3 /* selectedStockTableViewCell.xib in Resources */,
 				1B6B07A21B95F50500A152F2 /* stockTradeTableViewCell.xib in Resources */,
+				1BB0ABA01BC8E3250088AC19 /* tabTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +355,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E80CA8D18D19ED92F7D3DAE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-股票记帐本/Pods-股票记帐本-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A630F2F53D348C150BDA3358 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B6B076B1B95F28800A152F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -318,10 +395,12 @@
 			files = (
 				1B45DB821BAEC6B800AFE1CE /* historyStockTradeTableViewCell.m in Sources */,
 				1B466E701BA9BF0C00049DDD /* historyDataModel.m in Sources */,
+				1BCC92B11BC652B70010F58B /* SearchResults.m in Sources */,
 				1B6B079D1B95F2FB00A152F2 /* stockTradeViewController.m in Sources */,
 				1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */,
 				1B0BDD3A1BC39E82001D81A3 /* selectedStockViewController.m in Sources */,
 				1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */,
+				1BB0AB9F1BC8E3250088AC19 /* tabTableViewCell.m in Sources */,
 				1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */,
 				1B466E6D1BA9AE3C00049DDD /* historyTradeViewController.m in Sources */,
 				1B6B07781B95F28800A152F2 /* AppDelegate.m in Sources */,
@@ -454,6 +533,7 @@
 		};
 		1B6B07961B95F28800A152F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0871531D9883FA3FB0AFAC30 /* Pods-股票记帐本.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -470,6 +550,7 @@
 		};
 		1B6B07971B95F28800A152F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1375023BF85E71B37089922C /* Pods-股票记帐本.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,13 +16,66 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fuX-bb-X18">
-                        <rect key="frame" x="112" y="5" width="97" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="证券代码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM5-iY-hXa">
+                        <rect key="frame" x="22" y="22" width="56" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="4Fi-ct-xR6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="证券名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-sw-24K">
+                        <rect key="frame" x="8" y="0.0" width="83" height="22"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyD-sK-BES">
+                        <rect key="frame" x="167" y="8" width="66" height="22"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="涨幅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-Kd-bht">
+                        <rect key="frame" x="241" y="6.5" width="71" height="24.5"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="71" id="YtT-BY-XOE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="7er-Kd-bht" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6f1-qd-Qfi"/>
+                    <constraint firstItem="QQC-sw-24K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E6c-Xl-yOZ"/>
+                    <constraint firstItem="kyD-sK-BES" firstAttribute="leading" secondItem="kM5-iY-hXa" secondAttribute="trailing" constant="89" id="IXV-gC-5B2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kyD-sK-BES" secondAttribute="bottom" constant="5.5" id="JUg-wJ-Mza"/>
+                    <constraint firstItem="7er-Kd-bht" firstAttribute="leading" secondItem="kyD-sK-BES" secondAttribute="trailing" constant="8" id="T8l-dO-vrC"/>
+                    <constraint firstItem="kM5-iY-hXa" firstAttribute="centerX" secondItem="QQC-sw-24K" secondAttribute="centerX" id="Wtc-oM-gps"/>
+                    <constraint firstItem="kM5-iY-hXa" firstAttribute="top" secondItem="QQC-sw-24K" secondAttribute="bottom" id="X5v-CC-yYl"/>
+                    <constraint firstItem="kyD-sK-BES" firstAttribute="leading" secondItem="QQC-sw-24K" secondAttribute="trailing" constant="76" id="Ymy-P9-ncB"/>
+                    <constraint firstItem="kyD-sK-BES" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ahf-kd-anS"/>
+                    <constraint firstItem="QQC-sw-24K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gV3-oq-fpl"/>
+                    <constraint firstItem="7er-Kd-bht" firstAttribute="baseline" secondItem="kyD-sK-BES" secondAttribute="baseline" constant="1" id="gaQ-lx-d9u"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kM5-iY-hXa" secondAttribute="bottom" constant="-7.5" id="hSg-x9-55F"/>
+                    <constraint firstItem="kyD-sK-BES" firstAttribute="firstBaseline" secondItem="7er-Kd-bht" secondAttribute="firstBaseline" constant="3.5" id="trP-ou-fHv"/>
+                </constraints>
             </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="code" destination="kM5-iY-hXa" id="hgX-MG-ErV"/>
+                <outlet property="name" destination="QQC-sw-24K" id="rOT-r0-lhu"/>
+                <outlet property="percent" destination="7er-Kd-bht" id="Dmc-ks-zhA"/>
+                <outlet property="price" destination="kyD-sK-BES" id="XBf-W8-h7N"/>
+            </connections>
+            <point key="canvasLocation" x="359" y="158"/>
         </tableViewCell>
     </objects>
 </document>

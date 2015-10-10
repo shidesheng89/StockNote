@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface selectedStockTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *code;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *percent;
 
 @end
