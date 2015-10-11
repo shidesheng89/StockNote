@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="股票" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKR-Jg-bSM">
@@ -33,8 +33,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="涨幅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-Fv-y43">
-                        <rect key="frame" x="252" y="10" width="60" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="涨跌幅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-Fv-y43">
+                        <rect key="frame" x="252" y="10" width="60" height="22"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="KkX-Wk-ik4"/>
@@ -52,7 +52,7 @@
                     <constraint firstItem="lOa-OP-QaG" firstAttribute="leading" secondItem="mKR-Jg-bSM" secondAttribute="trailing" constant="76" id="HQD-U5-Jvl"/>
                     <constraint firstItem="i2P-Fv-y43" firstAttribute="firstBaseline" secondItem="lOa-OP-QaG" secondAttribute="firstBaseline" constant="1" id="NnW-Ig-vTG"/>
                     <constraint firstItem="i2P-Fv-y43" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="YWS-ZS-Y0z"/>
-                    <constraint firstItem="i2P-Fv-y43" firstAttribute="baseline" secondItem="lOa-OP-QaG" secondAttribute="baseline" id="bQu-0Y-0th"/>
+                    <constraint firstItem="i2P-Fv-y43" firstAttribute="baseline" secondItem="lOa-OP-QaG" secondAttribute="baseline" constant="1" id="bQu-0Y-0th"/>
                     <constraint firstItem="lOa-OP-QaG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="cTY-lL-UZf"/>
                     <constraint firstItem="mKR-Jg-bSM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="caN-XV-R7l"/>
                     <constraint firstItem="mKR-Jg-bSM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="nyU-TU-G57"/>

@@ -11,6 +11,6 @@
 @implementation SearchResults
 - (NSComparisonResult)compareName:(SearchResults *)other
 {
-    return [self.stockCode localizedStandardCompare:other.stockCode];
+    return [self.code localizedStandardCompare:other.code];
 }
 @end

@@ -355,7 +355,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-GH-M5s">
+                            <searchBar contentMode="redraw" placeholder="请输入股票名称\代码" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-GH-M5s">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>

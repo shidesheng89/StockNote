@@ -10,5 +10,4 @@
 
 @interface selectedStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
-
 @end

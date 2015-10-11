@@ -11,36 +11,60 @@
 #import "SearchResults.h"
 #import "selectedStockTableViewCell.h"
 #import "tabTableViewCell.h"
+#import "SearchResultTableViewCell.h"
+#import "SelectedStock.h"
 
 static NSString *cellIdentifier=@"cellIdentifier";
 static NSString *tabCellIdentifier=@"tabCellIdentifier";
+static NSString *searchCellIdentifier=@"searchCellIdentifier";
 
 @interface selectedStockViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSMutableArray *searchResults;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *allStockCode;
 @property (strong, nonatomic) NSMutableArray *allStockName;
+@property (strong, nonatomic) NSMutableArray *selectedStockData;
+@property (strong, nonatomic) NSMutableArray *selectedStockCode;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @end
 
 @implementation selectedStockViewController{
-    BOOL _isLoading;
+    BOOL _selectedStockIsLoading;
     NSOperationQueue *_queue;
     int sectionNumber;
 }
 
+//状态栏颜色设置
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getSelectedStockDate];
+    _selectedStockIsLoading=YES;
+    self.selectedStockCode=[[NSMutableArray alloc]initWithCapacity:20];
+    self.selectedStockData=[[NSMutableArray alloc]initWithCapacity:20];
     _queue = [[NSOperationQueue alloc] init];//试验，记得删
     [self getAllNameAndCode];
-    
     self.tableView.rowHeight=44;
+    UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
+    [self.tableView registerNib:tabNib forCellReuseIdentifier:tabCellIdentifier];
+    UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    UINib *searchResultsnib=[UINib nibWithNibName:@"SearchResultTableViewCell" bundle:nil];
+    [self.tableView registerNib:searchResultsnib forCellReuseIdentifier:searchCellIdentifier];
 //    UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
 //    [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
 //    UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
 //    [self.tableView registerNib:tabNib forCellReuseIdentifier:tabCellIdentifier];
     self.tableView.contentInset=UIEdgeInsetsMake(0.01, 0, 0, 0);//取消掉在heightForHeaderInSection设置的0.01
+    self.searchBar.tintColor=[UIColor whiteColor];
+    self.searchBar.barTintColor=[UIColor colorWithRed:0/255.0 green:127/255.0 blue:236/255.0 alpha:1.0];
+//    self.searchBar.barStyle=UIBarStyleBlack;
     //初始化搜索栏
 //    _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
 ////    _searchController.searchResultsUpdater=self;
@@ -68,67 +92,91 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    if (_selectedStockIsLoading==YES) {
+        return 2;
+    }else{
+    return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    if (self.searchController.active) {
-//        return [self.searchResults count];
-//    }else{
-//        return 0;
-//    }
-    if (section==0) {
-        return 1;
-    }else if(section==1){
-        NSLog(@"numberOfRowsInSection%lu",(unsigned long)[self.searchResults count]);
-        return [self.searchResults count];
+    if (_selectedStockIsLoading==NO) {
+        if ([self.searchResults count]<15) {
+            return [self.searchResults count];
+        }else{
+            return 15;
+        }
     }else{
-        return 0;
+        if (section==0) {
+            return 1;
+        }else if(section==1){
+            NSLog(@"numberOfRowsInSection%lu",(unsigned long)[self.searchResults count]);
+            return [self.selectedStockData count];
+        }else{
+            return 0;
+        }
     }
 //    return [self.searchResults count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section==0) {
+    if (_selectedStockIsLoading==NO) {
         return 0.01f;
     }else{
-        return 2.0f;
+        if (section==0) {
+            return 0.01f;
+        }else{
+            return 2.0f;
+        }
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01f;
+    if (_selectedStockIsLoading==YES) {
+        return 0.01f;
+    }else{
+        return 0;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0) {
-        UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
-        [self.tableView registerNib:tabNib forCellReuseIdentifier:tabCellIdentifier];
-        tabTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tabCellIdentifier forIndexPath:indexPath];
-        return cell;
-    }else if(indexPath.section==1){
-        UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
-        [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
-        selectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    if (_selectedStockIsLoading==NO) {
+        SearchResultTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:searchCellIdentifier forIndexPath:indexPath];
         SearchResults *searchResult=self.searchResults[indexPath.row];
-        cell.name.text=searchResult.nameOfStock;
-        cell.code.text=searchResult.stockCode;
-        cell.price.text=[NSString stringWithFormat:@"%.2f",[searchResult.price floatValue]];
-        float percent=[searchResult.percent floatValue];
-        if (percent>0) {
-            cell.percent.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
-            cell.percent.text=[NSString stringWithFormat:@"+%.2f%%",[searchResult.percent floatValue]*100];
-        }else if (percent==0){
-            cell.percent.textColor=[UIColor colorWithWhite:0 alpha:1];
-            cell.percent.text=[NSString stringWithFormat:@"%.2f%%",[searchResult.percent floatValue]*100];
-        }else if (percent<0){
-            cell.percent.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
-            cell.percent.text=[NSString stringWithFormat:@"%.2f%%",[searchResult.percent floatValue]*100];
-        }
-        NSLog(@"111");
+        cell.name.text=searchResult.name;
+        cell.code.text=searchResult.code;
+        cell.addSelectedStockButton.tag=indexPath.row;
+        [cell.addSelectedStockButton addTarget:self action:@selector(addSelectedStock:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
+        
     }else{
-        return nil;
+        if (indexPath.section==0) {
+            tabTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tabCellIdentifier forIndexPath:indexPath];
+            return cell;
+        }else if(indexPath.section==1){
+            selectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+            SelectedStock *selectedStock=self.selectedStockData[indexPath.row];
+            cell.name.text=selectedStock.name;
+            cell.code.text=selectedStock.code;
+            cell.price.text=[NSString stringWithFormat:@"%.2f",[selectedStock.price floatValue]];
+            float percent=[selectedStock.percent floatValue];
+            if (percent>0) {
+                cell.percent.textColor=[UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+                cell.percent.text=[NSString stringWithFormat:@"+%.2f%%",[selectedStock.percent floatValue]*100];
+            }else if (percent==0){
+                cell.percent.textColor=[UIColor colorWithWhite:0 alpha:1];
+                cell.percent.text=[NSString stringWithFormat:@"%.2f%%",[selectedStock.percent floatValue]*100];
+            }else if (percent<0){
+                cell.percent.textColor=[UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+                cell.percent.text=[NSString stringWithFormat:@"%.2f%%",[selectedStock.percent floatValue]*100];
+            }
+            NSLog(@"111");
+            return cell;
+        }else{
+            return nil;
+        }
     }
     //        UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
     //        [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
@@ -145,35 +193,53 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
 
 #pragma mark - searchBarDelegate
 
+-(void)addSelectedStock:(UIButton *)sender{
+    SearchResults *searchResult=self.searchResults[sender.tag];
+    [self.selectedStockCode addObject:searchResult.code];
+    NSLog(@"n%lu",(unsigned long)[self.selectedStockCode count]);
+    [self.searchBar resignFirstResponder];
+    [self getSelectedStockDate];
+    [self.tableView reloadData];
+    _selectedStockIsLoading=YES;
+    NSLog(@"add");
+}
 
-
-
-//- (NSString *)getSubstring:(NSString *)string parameter:(NSString *)parameterName{
-//    //NSRegularExpression类里面调用表达的方法需要传递一个NSError的参数。下面定义一个
-//    NSError *error;
+//- (IBAction)addSelectedStock:(id)sender {
+//    self.StockViewController.selectedStockCode=[[NSMutableArray alloc]initWithCapacity:20];
+//    NSString *tempCode=self.code.text;
+//    [self.StockViewController.selectedStockCode addObject:tempCode];
+//    NSLog(@"code%@",tempCode);
+//    NSLog(@"tockcode%@",self.StockViewController.selectedStockCode);
+//    [self.StockViewController.searchBar resignFirstResponder];
+//    [self.StockViewController getSelectedStockDate];
+//    [self.StockViewController.tableView reloadData];
+//    NSLog(@"button");
 //    
-//    //http+:[^\\s]* 这个表达式是检测一个网址的。(?<=title\>).*(?=</title)截取html文章中的<title></title>中内文字的正则表达式
-//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(?<=title\\>).*(?=</title)"options:0 error:&error];
-//    
-//    if (regex != nil) {
-//        NSTextCheckingResult *firstMatch=[regex firstMatchInString:urlString options:0 range:NSMakeRange(0, [urlString length])];
-//        
-//        if (firstMatch) {
-//            NSRange resultRange = [firstMatch rangeAtIndex:0];
-//            
-//            //从urlString当中截取数据
-//            NSString *result=[urlString substringWithRange:resultRange];
-//            //输出结果
-//            NSLog(@"->%@<-",result);
-//        }    
-//        
-//    }
 //}
+
+-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    [searchBar setShowsCancelButton:YES animated:YES];
+    _selectedStockIsLoading=NO;
+    self.searchResults=[[NSMutableArray alloc]initWithCapacity:20];
+    [self.tableView reloadData];
+    
+    return YES;
+}
+
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    return YES;
+    _selectedStockIsLoading=YES;
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    _selectedStockIsLoading=YES;
+    [self.tableView reloadData];
+}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    self.searchResults=[[NSMutableArray alloc]initWithCapacity:20];
-
     [self performSearch];
     NSLog(@"numberOfRowsInSection111%lu",(unsigned long)[self.searchResults count]);
 }
@@ -181,24 +247,43 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
 - (void)performSearch
 {
     if ([self.searchBar.text length] > 0) {
-        [_queue cancelAllOperations];
-        NSMutableArray *searchURLKey=[[NSMutableArray alloc]initWithCapacity:20];
-        [self.searchBar resignFirstResponder];
+        self.searchResults=[[NSMutableArray alloc]initWithCapacity:20];
+        
         for (NSInteger i=0; i<[self.allStockCode count]; i++) {
+            SearchResults *searchResults=[[SearchResults alloc]init];
             NSString *tempCode=self.allStockCode[i];
             NSString *tempName=self.allStockName[i];
-            NSString *newTempCode;
             if ([tempCode containsString:self.searchBar.text]||[tempName containsString:self.searchBar.text]) {
-                if ([tempCode hasPrefix:@"sh"]) {
-                    newTempCode=[tempCode stringByReplacingOccurrencesOfString:@"sh" withString:@"0"];
-                }else{
-                    newTempCode=[tempCode stringByReplacingOccurrencesOfString:@"sz" withString:@"1"];
-                }
-                [searchURLKey addObject:newTempCode];
+                searchResults.name=tempName;
+                searchResults.code=tempCode;
+                [self.searchResults addObject:searchResults];
             }
         }
+        NSLog(@"%@",self.searchResults);
+        [self.searchResults sortUsingSelector:@selector(compareName:)];
+        [self.tableView reloadData];
+    }
+}
+
+//直接search显示网络结果时使用
+- (void)getSelectedStockDate
+{
+    if ([self.selectedStockCode count] > 0) {
+        [_queue cancelAllOperations];
+        NSMutableArray *searchURLKey=[[NSMutableArray alloc]initWithCapacity:20];
+        for (NSInteger i=0; i<[self.selectedStockCode count]; i++) {
+            NSString *tempCode=self.selectedStockCode[i];
+            NSString *newTempCode;
+            
+            if ([tempCode hasPrefix:@"sh"]) {
+                newTempCode=[tempCode stringByReplacingOccurrencesOfString:@"sh" withString:@"0"];
+            }else{
+                newTempCode=[tempCode stringByReplacingOccurrencesOfString:@"sz" withString:@"1"];
+            }
+            [searchURLKey addObject:newTempCode];
+        }
         NSLog(@"count%lu",(unsigned long)[searchURLKey count]);
-        for (NSInteger i=0; i<[searchURLKey count]&&i<4; i++) {
+        for (NSInteger i=0; i<[searchURLKey count]; i++) {
             NSString *URLKey=searchURLKey[i];
             NSString *codeKey=searchURLKey[i];
             NSString *URLString=[NSString stringWithFormat:@"http://api.money.126.net/data/feed/%@,money.api",URLKey];
@@ -213,7 +298,7 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
                 NSString *substring=[self getSubstring:string];
                 NSDictionary *dictionary=[self parseJSON:substring][codeKey];
                 [self parseDictionary:dictionary];
-                NSLog(@"success");
+                NSLog(@"nnnn%lu",(unsigned long)[self.selectedStockData count]);
                 NSLog(@"%lu",(unsigned long)[self.searchResults count]);
                 [self.tableView reloadData];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -223,16 +308,9 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
             [_queue addOperation:op];
             
         }
-//        _isLoading = YES;
-//        [self.tableView reloadData];
-        
         [self.tableView reloadData];
     }
 }
-//- (NSComparisonResult)compareName:(SearchResult *)other
-//{
-//    return [self.name localizedStandardCompare:other.name];
-//}
 
 - (UIBarPosition) positionForBar:(id<UIBarPositioning>)bar{
     return UIBarPositionTopAttached;//The search bar is “attached” to the top of the screen
@@ -277,13 +355,12 @@ static NSString *tabCellIdentifier=@"tabCellIdentifier";
 }
 
 - (void)parseDictionary:(NSDictionary *)dictionary{
-    SearchResults *results=[[SearchResults alloc]init];
-    results.nameOfStock=dictionary[@"name"];
-    results.stockCode=[NSString stringWithFormat:@"%@%@",dictionary[@"type"],dictionary[@"symbol"]];
+    SelectedStock *results=[[SelectedStock alloc]init];
+    results.name=dictionary[@"name"];
+    results.code=[NSString stringWithFormat:@"%@%@",dictionary[@"type"],dictionary[@"symbol"]];
     results.price=dictionary[@"price"];
     results.percent=dictionary[@"percent"];
-    [self.searchResults addObject:results];
-    NSLog(@"searchResults22%lu",(unsigned long)[_searchResults count]);
+    [self.selectedStockData addObject:results];
 //    for (NSDictionary *resultDict in array) {
 //        
 //        searchResults *searchResult;
