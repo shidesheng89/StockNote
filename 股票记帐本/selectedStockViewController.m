@@ -29,6 +29,8 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) SelectedStockDataModel *selectedStockDataModel;
+@property (strong, nonatomic) NSMutableArray *stockDataInRealTime;
+
 
 
 @end
@@ -38,6 +40,10 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     NSOperationQueue *_queue;
     int sectionNumber;
     BOOL _showAlert;
+}
+
+- (IBAction)refresh:(id)sender {
+    [self getSelectedStockDate];
 }
 
 //状态栏颜色设置
@@ -57,8 +63,8 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"selected%@",self.selectedStockDataModel.selectedStockCode);
+    self.title=@"自选股";
+    NSLog(@"selected%@",self.selectedStockDataModel.selectedStockData);
     NSLog(@"numberOfRowsInSection1%lu",(unsigned long)[self.selectedStockData count]);
     
     _selectedStockIsLoading=YES;
@@ -71,24 +77,9 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     UINib *searchResultsnib=[UINib nibWithNibName:@"SearchResultTableViewCell" bundle:nil];
     [self.tableView registerNib:searchResultsnib forCellReuseIdentifier:searchCellIdentifier];
-//    UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
-//    UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
-//    [self.tableView registerNib:tabNib forCellReuseIdentifier:tabCellIdentifier];
     self.tableView.contentInset=UIEdgeInsetsMake(0.01, 0, 0, 0);//取消掉在heightForHeaderInSection设置的0.01
     self.searchBar.tintColor=[UIColor whiteColor];
-    self.searchBar.barTintColor=[UIColor colorWithRed:0/255.0 green:127/255.0 blue:236/255.0 alpha:1.0];
-//    self.searchBar.barStyle=UIBarStyleBlack;
-    //初始化搜索栏
-//    _searchController=[[UISearchController alloc]initWithSearchResultsController:nil];
-////    _searchController.searchResultsUpdater=self;
-//    _searchController.dimsBackgroundDuringPresentation=NO;
-//    _searchController.hidesNavigationBarDuringPresentation=NO;
-//    _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
-//    self.tableView.tableHeaderView=self.searchController.searchBar;
-//    _searchController.searchBar.placeholder=@"-输入证券名称-";
-//    _searchController.searchBar.delegate=self;
-    // Do any additional setup after loading the view.
+//    self.searchBar.barTintColor=[UIColor colorWithRed:0/255.0 green:127/255.0 blue:236/255.0 alpha:1.0f];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,7 +141,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     if (_selectedStockIsLoading==YES) {
         return 0.01f;
     }else{
-        return 0;
+        return 0.01f;
     }
     
 }
@@ -166,12 +157,15 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
         return cell;
         
     }else{
+        self.stockDataInRealTime=self.selectedStockData;
+        [self.stockDataInRealTime sortUsingSelector:@selector(compareName:)];
+//        [tempArray sortedArrayHint];
         if (indexPath.section==0) {
             tabTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tabCellIdentifier forIndexPath:indexPath];
             return cell;
         }else if(indexPath.section==1){
             selectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            SelectedStock *selectedStock=self.selectedStockData[indexPath.row];
+            SelectedStock *selectedStock=self.stockDataInRealTime[indexPath.row];
             cell.name.text=selectedStock.name;
             cell.code.text=selectedStock.code;
             cell.price.text=[NSString stringWithFormat:@"%.2f",[selectedStock.price floatValue]];
@@ -192,44 +186,71 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
             return nil;
         }
     }
-    //        UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
-    //        [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
-//    selectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-//    SearchResults *searchResult=self.searchResults[indexPath.row];
-//    cell.name.text=searchResult.nameOfStock;
-//    cell.code.text=searchResult.stockCode;
-//    cell.percent.text=[NSString stringWithFormat:@"%.2f%%",[searchResult.percent floatValue]*100];
-//    cell.price.text=[NSString stringWithFormat:@"%@",searchResult.price];
-//    NSLog(@"111");
-//    return cell;
     
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //多线程导致数组顺序不一致，重新排序
+    [self.selectedStockDataModel.selectedStockData sortUsingSelector:@selector(compareName:)];
+    [self.selectedStockDataModel.selectedStockData removeObjectAtIndex:indexPath.row];
+    [self.stockDataInRealTime removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths=@[indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.selectedStockDataModel saveData];
+    
+    
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
 }
 
 #pragma mark - searchBarDelegate
 
 -(void)addSelectedStock:(UIButton *)sender{
+    BOOL addSelectedStock=YES;
     SearchResults *searchResult=self.searchResults[sender.tag];
-    [self.selectedStockDataModel.selectedStockCode addObject:searchResult.code];
-    [self.searchBar resignFirstResponder];
-    [self getSelectedStockDate];
-    [self.tableView reloadData];
-    [self.selectedStockDataModel saveData];
-    _selectedStockIsLoading=YES;
-    NSLog(@"add");
+    for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockData count]; i++) {
+        SearchResults *stockData=self.selectedStockDataModel.selectedStockData[i];
+        NSString *code=stockData.code;
+        if ([searchResult.code isEqualToString:code]){
+            [self showReatAlert:stockData.name];
+            addSelectedStock=NO;
+            break;
+        }
+    }
+    if (addSelectedStock==YES) {
+        [self.selectedStockDataModel.selectedStockData addObject:searchResult];
+        [self.searchBar resignFirstResponder];
+        [self getSelectedStockDate];
+        [self.tableView reloadData];
+        [self.selectedStockDataModel saveData];
+        _selectedStockIsLoading=YES;
+    }
 }
 
-//- (IBAction)addSelectedStock:(id)sender {
-//    self.StockViewController.selectedStockCode=[[NSMutableArray alloc]initWithCapacity:20];
-//    NSString *tempCode=self.code.text;
-//    [self.StockViewController.selectedStockCode addObject:tempCode];
-//    NSLog(@"code%@",tempCode);
-//    NSLog(@"tockcode%@",self.StockViewController.selectedStockCode);
-//    [self.StockViewController.searchBar resignFirstResponder];
-//    [self.StockViewController getSelectedStockDate];
-//    [self.StockViewController.tableView reloadData];
-//    NSLog(@"button");
-//    
-//}
+
+-(void)showReatAlert:(NSString *)stockName{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:[NSString stringWithFormat:@"%@已在自选股中",stockName]
+                              message:nil
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+    
+}
+- (void)showNetworkError{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"网络无法连接"
+                              message:nil
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
 
 -(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
     [searchBar setShowsCancelButton:YES animated:YES];
@@ -282,11 +303,13 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 //直接search显示网络结果时使用
 - (void)getSelectedStockDate{
     self.selectedStockData=[[NSMutableArray alloc]initWithCapacity:20];
-    if ([self.selectedStockDataModel.selectedStockCode count] > 0) {
+    if ([self.selectedStockDataModel.selectedStockData count] > 0) {
         [_queue cancelAllOperations];
         NSMutableArray *searchURLKey=[[NSMutableArray alloc]initWithCapacity:20];
-        for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockCode count]; i++) {
-            NSString *tempCode=self.selectedStockDataModel.selectedStockCode[i];
+        for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockData count]; i++) {
+            SearchResults *selectedStock=[[SearchResults alloc]init];
+            selectedStock=self.selectedStockDataModel.selectedStockData[i];
+            NSString *tempCode=selectedStock.code;
             NSString *newTempCode;
             
             if ([tempCode hasPrefix:@"sh"]) {
@@ -294,6 +317,9 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
             }else{
                 newTempCode=[tempCode stringByReplacingOccurrencesOfString:@"sz" withString:@"1"];
             }
+            NSLog(@"%@",selectedStock.code);
+            NSLog(@"%@",tempCode);
+            NSLog(@"%@",newTempCode);
             [searchURLKey addObject:newTempCode];
         }
         NSLog(@"count%lu",(unsigned long)[searchURLKey count]);
@@ -328,9 +354,6 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     }
 }
 
-- (UIBarPosition) positionForBar:(id<UIBarPositioning>)bar{
-    return UIBarPositionTopAttached;//The search bar is “attached” to the top of the screen
-}
 
 //截取字符串
 - (NSString *)getSubstring:(NSString *)string{
@@ -377,40 +400,9 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     results.price=dictionary[@"price"];
     results.percent=dictionary[@"percent"];
     [self.selectedStockData addObject:results];
-    NSLog(@"dasdadasda%lu",(unsigned long)[self.selectedStockData count]);
-//    for (NSDictionary *resultDict in array) {
-//        
-//        searchResults *searchResult;
-//        
-//        NSString *wrapperType = resultDict[@"wrapperType"];
-//        NSString *kind = resultDict[@"kind"];
-//        
-//        if ([wrapperType isEqualToString:@"track"]) {
-//            searchResult = [self parseTrack:resultDict];
-//        } else if ([wrapperType isEqualToString:@"audiobook"]) {
-//            searchResult = [self parseAudioBook:resultDict];
-//        } else if ([wrapperType isEqualToString:@"software"]) {
-//            searchResult = [self parseSoftware:resultDict];
-//        } else if ([kind isEqualToString:@"ebook"]) {
-//            searchResult = [self parseEBook:resultDict];
-//        }
-//        
-//        if (searchResult != nil) {
-//            [_searchResults addObject:searchResult];
-//        }
-//    }
+
 }
 
-- (void)showNetworkError{
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"Whoops..."
-                              message:@"There was an error reading from the iTunes Store. Please try again."
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-    
-    [alertView show];
-}
 
 
 
@@ -420,7 +412,6 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     NSString *filePath=[[NSBundle mainBundle]pathForResource:@"nameAndCode" ofType:@"txt"];
      NSString *string=[NSString stringWithContentsOfFile:filePath encoding:NSUTF16StringEncoding error:nil];
     NSArray *array=[string componentsSeparatedByString:@"\n"];
-//    NSLog(@"%@",array);
     NSEnumerator *arrayEnumerator=[array objectEnumerator];
     NSString *tempString;
     while (tempString =[arrayEnumerator nextObject]) {

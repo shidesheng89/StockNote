@@ -10,8 +10,8 @@
 
 @interface SelectedStockDataModel : NSObject
 
-@property (strong,nonatomic) NSMutableArray *selectedStockCode;
+@property (strong,nonatomic) NSMutableArray *selectedStockData;
 
 - (void)saveData;
-
+//- (NSComparisonResult)compareName:(SelectedStockDataModel *)other;
 @end

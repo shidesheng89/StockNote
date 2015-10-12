@@ -9,5 +9,8 @@
 #import "SelectedStock.h"
 
 @implementation SelectedStock
-
+- (NSComparisonResult)compareName:(SelectedStock *)other
+{
+    return [self.code localizedStandardCompare:other.code];
+}
 @end

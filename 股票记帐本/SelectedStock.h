@@ -15,4 +15,6 @@
 @property (copy, nonatomic) NSString *percent;
 @property (copy, nonatomic) NSString *price;
 
+- (NSComparisonResult)compareName:(SelectedStock *)other;
+
 @end

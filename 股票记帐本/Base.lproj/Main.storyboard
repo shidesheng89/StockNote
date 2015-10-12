@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyH-b8-Ep0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3226" y="1492"/>
+            <point key="canvasLocation" x="4038" y="1492"/>
         </scene>
         <!--History Trade View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -334,7 +334,7 @@
                         <color key="tintColor" red="0.0" green="0.49803921568627452" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oR8-c7-AYu" kind="relationship" relationship="viewControllers" id="nsz-cO-0dU"/>
+                        <segue destination="yIu-vC-B29" kind="relationship" relationship="viewControllers" id="nsz-cO-0dU"/>
                         <segue destination="Jjr-bn-fPG" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="PUg-i8-C88" kind="relationship" relationship="viewControllers" id="de3-8t-DXW"/>
                     </connections>
@@ -343,7 +343,7 @@
             </objects>
             <point key="canvasLocation" x="-32" y="-66"/>
         </scene>
-        <!--自选-->
+        <!--Selected Stock View Controller-->
         <scene sceneID="qOY-cc-0Q2">
             <objects>
                 <viewController id="oR8-c7-AYu" customClass="selectedStockViewController" sceneMemberID="viewController">
@@ -355,18 +355,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="请输入股票名称\代码" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-GH-M5s">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <animations/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oR8-c7-AYu" id="lgB-u7-W4t"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W0A-e7-6d6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="请输入股票名称\代码" id="7Gh-GH-M5s">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                    <connections>
+                                        <outlet property="delegate" destination="oR8-c7-AYu" id="lgB-u7-W4t"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="oR8-c7-AYu" id="HWK-hQ-qNI"/>
                                     <outlet property="delegate" destination="oR8-c7-AYu" id="tqm-LC-tcq"/>
@@ -376,16 +381,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7Gh-GH-M5s" secondAttribute="trailing" id="61i-Ru-AFZ"/>
-                            <constraint firstItem="7Gh-GH-M5s" firstAttribute="leading" secondItem="J9Q-Sy-6Uc" secondAttribute="leading" id="Zi0-K5-0jo"/>
-                            <constraint firstItem="W0A-e7-6d6" firstAttribute="trailing" secondItem="7Gh-GH-M5s" secondAttribute="trailing" id="cWL-Vb-WP3"/>
-                            <constraint firstItem="W0A-e7-6d6" firstAttribute="bottom" secondItem="5j3-4r-545" secondAttribute="top" id="dlS-Aa-XdJ"/>
-                            <constraint firstItem="7Gh-GH-M5s" firstAttribute="top" secondItem="y2H-Hr-RYd" secondAttribute="bottom" id="g4f-iZ-CwW"/>
-                            <constraint firstItem="W0A-e7-6d6" firstAttribute="leading" secondItem="7Gh-GH-M5s" secondAttribute="leading" id="hOD-nT-FRu"/>
-                            <constraint firstItem="W0A-e7-6d6" firstAttribute="top" secondItem="7Gh-GH-M5s" secondAttribute="bottom" id="uG4-wZ-Hhn"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="top" secondItem="J9Q-Sy-6Uc" secondAttribute="top" id="8Lq-i7-g0a"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="bottom" secondItem="5j3-4r-545" secondAttribute="top" id="IFM-yj-fgn"/>
+                            <constraint firstAttribute="trailing" secondItem="W0A-e7-6d6" secondAttribute="trailing" id="Ma0-Qh-R1a"/>
+                            <constraint firstItem="W0A-e7-6d6" firstAttribute="leading" secondItem="J9Q-Sy-6Uc" secondAttribute="leading" id="zny-g1-9Oe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="自选" id="UnA-RP-Ogu"/>
+                    <navigationItem key="navigationItem" id="Xj9-5S-ZkZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="S52-QU-njh">
+                            <connections>
+                                <action selector="refresh:" destination="oR8-c7-AYu" id="3Ab-ml-Q0J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="7Gh-GH-M5s" id="MWo-bY-3Pu"/>
                         <outlet property="tableView" destination="W0A-e7-6d6" id="75Q-Ix-aSJ"/>
@@ -393,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzW-Mf-cLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1338" y="1866"/>
+            <point key="canvasLocation" x="2257" y="1816"/>
         </scene>
         <!--交 易-->
         <scene sceneID="WJk-55-Edx">
@@ -547,9 +555,30 @@
             </objects>
             <point key="canvasLocation" x="760" y="373"/>
         </scene>
+        <!--自选-->
+        <scene sceneID="bWv-Bh-t1E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIu-vC-B29" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="自选" image="selectedStock" id="UnA-RP-Ogu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MKm-SQ-4Gw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oR8-c7-AYu" kind="relationship" relationship="rootViewController" id="1l0-E1-R61"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4C3-4U-luf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="1816"/>
+        </scene>
     </scenes>
     <resources>
         <image name="history" width="30" height="30"/>
+        <image name="selectedStock" width="30" height="30"/>
         <image name="trade" width="30" height="30"/>
     </resources>
 </document>

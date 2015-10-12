@@ -46,8 +46,9 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     _searchController.dimsBackgroundDuringPresentation=NO;
     _searchController.hidesNavigationBarDuringPresentation=NO;
     _searchController.searchBar.frame=CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 40);
+//    _searchController.searchBar.barTintColor=[UIColor colorWithRed:0/255.0 green:127/255.0 blue:236/255.0 alpha:1.0f];
     self.historyTableView.tableHeaderView=self.searchController.searchBar;
-    _searchController.searchBar.placeholder=@"-输入证券名称-";
+    _searchController.searchBar.placeholder=@"-输入股票名称-";
     
     self.title=@"历 史";
     
