@@ -18,6 +18,7 @@
 		1B4EEFC21BCA34A600A90693 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4EEFC01BCA34A600A90693 /* SearchResultTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		1B4EEFC31BCA34A600A90693 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B4EEFC11BCA34A600A90693 /* SearchResultTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1B4EEFC61BCA569200A90693 /* SelectedStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4EEFC51BCA569200A90693 /* SelectedStock.m */; settings = {ASSET_TAGS = (); }; };
+		1B4EEFC91BCAB85600A90693 /* SelectedStockDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4EEFC81BCAB85600A90693 /* SelectedStockDataModel.m */; settings = {ASSET_TAGS = (); }; };
 		1B6B07751B95F28800A152F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07741B95F28800A152F2 /* main.m */; };
 		1B6B07781B95F28800A152F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B07771B95F28800A152F2 /* AppDelegate.m */; };
 		1B6B07811B95F28800A152F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6B077F1B95F28800A152F2 /* Main.storyboard */; };
@@ -69,6 +70,8 @@
 		1B4EEFC11BCA34A600A90693 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		1B4EEFC41BCA569100A90693 /* SelectedStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedStock.h; sourceTree = "<group>"; };
 		1B4EEFC51BCA569200A90693 /* SelectedStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedStock.m; sourceTree = "<group>"; };
+		1B4EEFC71BCAB85600A90693 /* SelectedStockDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedStockDataModel.h; sourceTree = "<group>"; };
+		1B4EEFC81BCAB85600A90693 /* SelectedStockDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedStockDataModel.m; sourceTree = "<group>"; };
 		1B6B076F1B95F28800A152F2 /* 股票记帐本.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "股票记帐本.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6B07741B95F28800A152F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B6B07761B95F28800A152F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				1B4EEFC11BCA34A600A90693 /* SearchResultTableViewCell.xib */,
 				1B4EEFC41BCA569100A90693 /* SelectedStock.h */,
 				1B4EEFC51BCA569200A90693 /* SelectedStock.m */,
+				1B4EEFC71BCAB85600A90693 /* SelectedStockDataModel.h */,
+				1B4EEFC81BCAB85600A90693 /* SelectedStockDataModel.m */,
 			);
 			name = "selected Stock Files";
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				1B4EEFC61BCA569200A90693 /* SelectedStock.m in Sources */,
 				1BA50B571B96D3AC004A196D /* addStockViewController.m in Sources */,
 				1B0BDD3A1BC39E82001D81A3 /* selectedStockViewController.m in Sources */,
+				1B4EEFC91BCAB85600A90693 /* SelectedStockDataModel.m in Sources */,
 				1BDF3D6B1BA2BA74007BEAF6 /* DataModel.m in Sources */,
 				1BB0AB9F1BC8E3250088AC19 /* tabTableViewCell.m in Sources */,
 				1BA50B5A1B96EE5C004A196D /* stockData.m in Sources */,

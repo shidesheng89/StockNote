@@ -13,6 +13,7 @@
 #import "tabTableViewCell.h"
 #import "SearchResultTableViewCell.h"
 #import "SelectedStock.h"
+#import "SelectedStockDataModel.h"
 
 static NSString *cellIdentifier=@"cellIdentifier";
 static NSString *tabCellIdentifier=@"tabCellIdentifier";
@@ -25,9 +26,10 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 @property (strong, nonatomic) NSMutableArray *allStockCode;
 @property (strong, nonatomic) NSMutableArray *allStockName;
 @property (strong, nonatomic) NSMutableArray *selectedStockData;
-@property (strong, nonatomic) NSMutableArray *selectedStockCode;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) SelectedStockDataModel *selectedStockDataModel;
+
 
 @end
 
@@ -35,6 +37,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     BOOL _selectedStockIsLoading;
     NSOperationQueue *_queue;
     int sectionNumber;
+    BOOL _showAlert;
 }
 
 //状态栏颜色设置
@@ -42,12 +45,23 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     return UIStatusBarStyleLightContent;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.selectedStockDataModel=[[SelectedStockDataModel alloc]init];
+    [self getSelectedStockDate];
+    if (_showAlert==YES) {
+        [self showNetworkError];
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getSelectedStockDate];
+    
+    NSLog(@"selected%@",self.selectedStockDataModel.selectedStockCode);
+    NSLog(@"numberOfRowsInSection1%lu",(unsigned long)[self.selectedStockData count]);
+    
     _selectedStockIsLoading=YES;
-    self.selectedStockCode=[[NSMutableArray alloc]initWithCapacity:20];
-    self.selectedStockData=[[NSMutableArray alloc]initWithCapacity:20];
     _queue = [[NSOperationQueue alloc] init];//试验，记得删
     [self getAllNameAndCode];
     self.tableView.rowHeight=44;
@@ -110,7 +124,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
         if (section==0) {
             return 1;
         }else if(section==1){
-            NSLog(@"numberOfRowsInSection%lu",(unsigned long)[self.searchResults count]);
+            NSLog(@"numberOfRowsInSection%lu",(unsigned long)[self.selectedStockData count]);
             return [self.selectedStockData count];
         }else{
             return 0;
@@ -195,11 +209,11 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 
 -(void)addSelectedStock:(UIButton *)sender{
     SearchResults *searchResult=self.searchResults[sender.tag];
-    [self.selectedStockCode addObject:searchResult.code];
-    NSLog(@"n%lu",(unsigned long)[self.selectedStockCode count]);
+    [self.selectedStockDataModel.selectedStockCode addObject:searchResult.code];
     [self.searchBar resignFirstResponder];
     [self getSelectedStockDate];
     [self.tableView reloadData];
+    [self.selectedStockDataModel saveData];
     _selectedStockIsLoading=YES;
     NSLog(@"add");
 }
@@ -266,13 +280,13 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 }
 
 //直接search显示网络结果时使用
-- (void)getSelectedStockDate
-{
-    if ([self.selectedStockCode count] > 0) {
+- (void)getSelectedStockDate{
+    self.selectedStockData=[[NSMutableArray alloc]initWithCapacity:20];
+    if ([self.selectedStockDataModel.selectedStockCode count] > 0) {
         [_queue cancelAllOperations];
         NSMutableArray *searchURLKey=[[NSMutableArray alloc]initWithCapacity:20];
-        for (NSInteger i=0; i<[self.selectedStockCode count]; i++) {
-            NSString *tempCode=self.selectedStockCode[i];
+        for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockCode count]; i++) {
+            NSString *tempCode=self.selectedStockDataModel.selectedStockCode[i];
             NSString *newTempCode;
             
             if ([tempCode hasPrefix:@"sh"]) {
@@ -300,8 +314,10 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
                 [self parseDictionary:dictionary];
                 NSLog(@"nnnn%lu",(unsigned long)[self.selectedStockData count]);
                 NSLog(@"%lu",(unsigned long)[self.searchResults count]);
+                _showAlert=NO;
                 [self.tableView reloadData];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                _showAlert=YES;
                 NSLog(@"Error: %@", error);
                 [self.tableView reloadData];
             }];
@@ -361,6 +377,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     results.price=dictionary[@"price"];
     results.percent=dictionary[@"percent"];
     [self.selectedStockData addObject:results];
+    NSLog(@"dasdadasda%lu",(unsigned long)[self.selectedStockData count]);
 //    for (NSDictionary *resultDict in array) {
 //        
 //        searchResults *searchResult;
