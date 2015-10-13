@@ -30,8 +30,10 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.dataModel=[[DataModel alloc]init];
     [self.tableview reloadData];
     [self setTotalGainSignAndColor];
+    
 }
 
 - (void)viewDidLoad {
@@ -44,7 +46,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     // Do any additional setup after loading the view.
     
-    self.dataModel=[[DataModel alloc]init];
+    
     self.historyDataModel=[[historyDataModel alloc]init];
     
     
