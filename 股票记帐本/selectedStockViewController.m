@@ -207,15 +207,21 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.selectedStockDataModel.selectedStockData sortUsingSelector:@selector(compareName:)];
     
-    SelectedStock *selectedStock=self.stockDataInRealTime[indexPath.row];
-    
+    SelectedStock *selectedStock=self.selectedStockDataModel.selectedStockData[indexPath.row];
+    NSLog(@"selectedStock%@",selectedStock);
+    NSLog(@"selectedStock%@",selectedStock.name);
     [self performSegueWithIdentifier:@"addSelectedStock" sender:selectedStock];//跳转之后tableview内的数据依旧可以用
 }
 
-//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return nil;
-//}
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_selectedStockIsLoading==NO) {
+        return nil;
+    }else{
+        return indexPath;
+    }
+}
 
 #pragma mark - searchBarDelegate
 
@@ -449,6 +455,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
         UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
         addStockViewController *controller=(addStockViewController *)navigationController.topViewController;//为了获取addStockViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
         controller.delegate=self;//一旦我们获得了到addStockViewController对象的引用，就需要将delegate属性设置为self(这样在addStockViewController中的self.delegate才是stockTradeViewController)，而self指的是stockTradeViewController
+        controller.selectedStock=sender;
         
     }
 }

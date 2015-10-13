@@ -9,7 +9,10 @@
 #import "addStockViewController.h"
 #import "stockTradeTableViewCell.h"
 #import "stockData.h"
+#import "SelectedStock.h"
+
 @interface addStockViewController ()
+
 
 @end
 
@@ -18,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"添加股票";
+//    if (self.selectedStock!=nil) {
+        self.nameOfStock.text=self.selectedStock.name;
+        self.numberOfStock.text=self.selectedStock.code;
+    NSLog(@"elf.selectedStock.name%@",self.selectedStock.name);
+    
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

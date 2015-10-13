@@ -10,6 +10,7 @@
 @class addStockViewController;//只是通知代理协议addStockViewController对象的存在，与＃import不同
 @class stockTradeTableViewCell;//只是通知代理协议addStockViewController对象的存在，与＃import不同
 @class stockData;
+@class SelectedStock;
 
 @protocol addStockViewControllerDelegate <NSObject>
 
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) NSString *buyTime;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UITextField *buyFee;
+@property (strong, nonatomic) SelectedStock *selectedStock;
 
 - (IBAction)cancle:(id)sender;
 - (IBAction)Done:(id)sender;
