@@ -326,8 +326,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
         [_queue cancelAllOperations];
         NSMutableArray *searchURLKey=[[NSMutableArray alloc]initWithCapacity:20];
         for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockData count]; i++) {
-            SearchResults *selectedStock=[[SearchResults alloc]init];
-            selectedStock=self.selectedStockDataModel.selectedStockData[i];
+            SearchResults *selectedStock=self.selectedStockDataModel.selectedStockData[i];
             NSString *tempCode=selectedStock.code;
             NSString *newTempCode;
             

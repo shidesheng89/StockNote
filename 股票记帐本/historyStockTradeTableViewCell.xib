@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-Wf-McX">
-                        <rect key="frame" x="18" y="6" width="77" height="21"/>
+                        <rect key="frame" x="18" y="6" width="104" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="77" id="vb7-7V-t9B"/>
+                            <constraint firstAttribute="width" constant="104" id="vb7-7V-t9B"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +89,7 @@
                     <constraint firstItem="hhi-ZF-TXx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="OaZ-2X-0LL"/>
                     <constraint firstItem="hhi-ZF-TXx" firstAttribute="trailing" secondItem="95c-yS-PGY" secondAttribute="trailing" id="WoW-aD-zP3"/>
                     <constraint firstItem="H6k-UQ-gmj" firstAttribute="top" secondItem="95c-yS-PGY" secondAttribute="bottom" constant="27" id="ZLO-nF-A3C"/>
-                    <constraint firstItem="95c-yS-PGY" firstAttribute="leading" secondItem="1Lz-Wf-McX" secondAttribute="trailing" constant="97" id="Zyv-H5-E8K"/>
+                    <constraint firstItem="95c-yS-PGY" firstAttribute="leading" secondItem="1Lz-Wf-McX" secondAttribute="trailing" constant="70" id="Zyv-H5-E8K"/>
                     <constraint firstItem="f8g-Vq-bV2" firstAttribute="top" secondItem="fUS-Yu-e99" secondAttribute="bottom" constant="6" id="fUq-UF-Svs"/>
                     <constraint firstItem="hhi-ZF-TXx" firstAttribute="leading" secondItem="95c-yS-PGY" secondAttribute="leading" id="h3k-Pd-Eco"/>
                     <constraint firstItem="f8g-Vq-bV2" firstAttribute="firstBaseline" secondItem="Ntl-E6-QYB" secondAttribute="firstBaseline" id="hIB-uH-ZCW"/>

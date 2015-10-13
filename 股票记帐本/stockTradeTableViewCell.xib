@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-Wf-McX">
-                        <rect key="frame" x="18" y="6" width="77" height="21"/>
+                        <rect key="frame" x="18" y="6" width="104" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="77" id="xbW-2H-e2Y"/>
+                            <constraint firstAttribute="width" constant="104" id="xbW-2H-e2Y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,7 +118,7 @@
                     <constraint firstItem="fUS-Yu-e99" firstAttribute="leading" secondItem="f8g-Vq-bV2" secondAttribute="leading" id="jhe-qn-zkT"/>
                     <constraint firstItem="f8g-Vq-bV2" firstAttribute="top" secondItem="fUS-Yu-e99" secondAttribute="bottom" constant="1" id="l67-36-uhj"/>
                     <constraint firstItem="hhi-ZF-TXx" firstAttribute="trailing" secondItem="95c-yS-PGY" secondAttribute="trailing" id="lMl-yV-9Hp"/>
-                    <constraint firstItem="95c-yS-PGY" firstAttribute="leading" secondItem="1Lz-Wf-McX" secondAttribute="trailing" constant="97" id="lV9-7R-NEe"/>
+                    <constraint firstItem="95c-yS-PGY" firstAttribute="leading" secondItem="1Lz-Wf-McX" secondAttribute="trailing" constant="70" id="lV9-7R-NEe"/>
                     <constraint firstItem="1Lz-Wf-McX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="o6Y-je-pgZ"/>
                     <constraint firstItem="03q-FI-NJk" firstAttribute="baseline" secondItem="yaG-Oa-4gO" secondAttribute="baseline" id="qp5-VM-EYr"/>
                     <constraint firstItem="fUS-Yu-e99" firstAttribute="top" secondItem="1Lz-Wf-McX" secondAttribute="bottom" constant="1" id="s0z-U2-qbo"/>
