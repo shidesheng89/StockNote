@@ -15,6 +15,10 @@
 #import "SelectedStock.h"
 #import "SelectedStockDataModel.h"
 
+#import "addStockViewController.h"
+#import "stockTradeViewController.h"
+#import "DataModel.h"
+
 static NSString *cellIdentifier=@"cellIdentifier";
 static NSString *tabCellIdentifier=@"tabCellIdentifier";
 static NSString *searchCellIdentifier=@"searchCellIdentifier";
@@ -31,6 +35,8 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 @property (strong, nonatomic) SelectedStockDataModel *selectedStockDataModel;
 @property (strong, nonatomic) NSMutableArray *stockDataInRealTime;
 
+@property (strong, nonatomic) stockTradeViewController *stockTradeViewController;
+@property (strong, nonatomic) DataModel *dataModel;
 
 
 @end
@@ -54,6 +60,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.selectedStockDataModel=[[SelectedStockDataModel alloc]init];
+    
     [self getSelectedStockDate];
     if (_showAlert==YES) {
         [self showNetworkError];
@@ -63,6 +70,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataModel=[[DataModel alloc]init];
     self.title=@"自选股";
     NSLog(@"selected%@",self.selectedStockDataModel.selectedStockData);
     NSLog(@"numberOfRowsInSection1%lu",(unsigned long)[self.selectedStockData count]);
@@ -197,12 +205,17 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.selectedStockDataModel saveData];
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    SelectedStock *selectedStock=self.stockDataInRealTime[indexPath.row];
+    
+    [self performSegueWithIdentifier:@"addSelectedStock" sender:selectedStock];//跳转之后tableview内的数据依旧可以用
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
-}
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return nil;
+//}
 
 #pragma mark - searchBarDelegate
 
@@ -429,14 +442,30 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 //    NSLog(@"allstockcode%@",self.allStockName);
 //    NSLog(@"%@",self.allStockName[0]);
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"addSelectedStock"]) {
+        UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
+        addStockViewController *controller=(addStockViewController *)navigationController.topViewController;//为了获取addStockViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
+        controller.delegate=self;//一旦我们获得了到addStockViewController对象的引用，就需要将delegate属性设置为self(这样在addStockViewController中的self.delegate才是stockTradeViewController)，而self指的是stockTradeViewController
+        
+    }
 }
-*/
+
+#pragma mark 代理方法
+- (void)addStockViewControllerDidCancel:(addStockViewController *)controller{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata{
+    [self.dataModel.Data insertObject:stockdata atIndex:0];
+    [self.dataModel saveData];
+//    [self performSegueWithIdentifier:@"showTrade" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

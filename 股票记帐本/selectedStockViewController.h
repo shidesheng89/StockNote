@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "addStockViewController.h"
 
-@interface selectedStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface selectedStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,addStockViewControllerDelegate>
 
 @end
