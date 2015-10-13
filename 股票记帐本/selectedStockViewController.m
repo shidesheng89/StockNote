@@ -45,11 +45,14 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     BOOL _selectedStockIsLoading;
     NSOperationQueue *_queue;
     int sectionNumber;
-    BOOL _showAlert;
+    BOOL _NetWorking;
 }
 
 - (IBAction)refresh:(id)sender {
     [self getSelectedStockDate];
+    if (_NetWorking==NO) {
+        [self showNetworkError];
+    }
 }
 
 //状态栏颜色设置
@@ -60,23 +63,22 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.selectedStockDataModel=[[SelectedStockDataModel alloc]init];
-    
+    _NetWorking=YES;
     [self getSelectedStockDate];
-    if (_showAlert==YES) {
-        [self showNetworkError];
-    }
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     self.dataModel=[[DataModel alloc]init];
     self.title=@"自选股";
     NSLog(@"selected%@",self.selectedStockDataModel.selectedStockData);
     NSLog(@"numberOfRowsInSection1%lu",(unsigned long)[self.selectedStockData count]);
     
     _selectedStockIsLoading=YES;
-    _queue = [[NSOperationQueue alloc] init];//试验，记得删
+    _queue = [[NSOperationQueue alloc] init];//AFNetworking线程初始化
     [self getAllNameAndCode];
     self.tableView.rowHeight=44;
     UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
@@ -228,22 +230,26 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 -(void)addSelectedStock:(UIButton *)sender{
     BOOL addSelectedStock=YES;
     SearchResults *searchResult=self.searchResults[sender.tag];
-    for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockData count]; i++) {
-        SearchResults *stockData=self.selectedStockDataModel.selectedStockData[i];
-        NSString *code=stockData.code;
-        if ([searchResult.code isEqualToString:code]){
-            [self showReatAlert:stockData.name];
-            addSelectedStock=NO;
-            break;
+    if (_NetWorking==NO) {
+        [self showNetworkError];
+    }else{
+        for (NSInteger i=0; i<[self.selectedStockDataModel.selectedStockData count]; i++) {
+            SearchResults *stockData=self.selectedStockDataModel.selectedStockData[i];
+            NSString *code=stockData.code;
+            if ([searchResult.code isEqualToString:code]){
+                [self showReatAlert:stockData.name];
+                addSelectedStock=NO;
+                break;
+            }
         }
-    }
-    if (addSelectedStock==YES) {
-        [self.selectedStockDataModel.selectedStockData addObject:searchResult];
-        [self.searchBar resignFirstResponder];
-        [self getSelectedStockDate];
-        [self.tableView reloadData];
-        [self.selectedStockDataModel saveData];
-        _selectedStockIsLoading=YES;
+        if (addSelectedStock==YES) {
+            [self.selectedStockDataModel.selectedStockData addObject:searchResult];
+            [self.searchBar resignFirstResponder];
+            [self getSelectedStockDate];
+            [self.tableView reloadData];
+            [self.selectedStockDataModel saveData];
+            _selectedStockIsLoading=YES;
+        }
     }
 }
 
@@ -358,10 +364,10 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
                 [self parseDictionary:dictionary];
                 NSLog(@"nnnn%lu",(unsigned long)[self.selectedStockData count]);
                 NSLog(@"%lu",(unsigned long)[self.searchResults count]);
-                _showAlert=NO;
+                _NetWorking=YES;
                 [self.tableView reloadData];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                _showAlert=YES;
+                _NetWorking=NO;
                 NSLog(@"Error: %@", error);
                 [self.tableView reloadData];
             }];
