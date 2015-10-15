@@ -1,5 +1,5 @@
 //
-//  historyStockTradeTableViewCell.h
+//  stockTradeTableViewCell.h
 //  股票记帐本
 //
 //  Created by 施德胜 on 15/9/1.
@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface historyStockTradeTableViewCell : UITableViewCell
+@interface StockTradeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameOfStock;
 @property (weak, nonatomic) IBOutlet UILabel *timeOfDeal;
 
 @property (weak, nonatomic) IBOutlet UILabel *buyPriceAndNumebr;
+
+@property (weak, nonatomic) IBOutlet UILabel *numberOfHolding;
 @property (weak, nonatomic) IBOutlet UILabel *gainOrLose;
 @property (weak, nonatomic) IBOutlet UILabel *percentOfGainOrLose;
-@property (weak, nonatomic) IBOutlet UILabel *stockNumer;
+@property (weak, nonatomic) IBOutlet UILabel *stockNumber;
 
 
 

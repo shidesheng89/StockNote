@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "stockData.h"
+#import "StockData.h"
 
-@implementation stockData
+@implementation StockData
 
 - (id)init{
     //当用户添加一个新的stockdata到应用中时会调用常规init方法

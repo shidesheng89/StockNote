@@ -6,24 +6,24 @@
 //  Copyright © 2015年 施德胜. All rights reserved.
 //
 
-#import "selectedStockViewController.h"
+#import "SelectedStockViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "SearchResults.h"
-#import "selectedStockTableViewCell.h"
-#import "tabTableViewCell.h"
+#import "SelectedStockTableViewCell.h"
+#import "TabTableViewCell.h"
 #import "SearchResultTableViewCell.h"
 #import "SelectedStock.h"
 #import "SelectedStockDataModel.h"
 
-#import "addStockViewController.h"
-#import "stockTradeViewController.h"
+#import "AddStockViewController.h"
+#import "StockTradeViewController.h"
 #import "DataModel.h"
 
 static NSString *cellIdentifier=@"cellIdentifier";
 static NSString *tabCellIdentifier=@"tabCellIdentifier";
 static NSString *searchCellIdentifier=@"searchCellIdentifier";
 
-@interface selectedStockViewController ()
+@interface SelectedStockViewController ()
 
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSMutableArray *searchResults;
@@ -35,13 +35,13 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 @property (strong, nonatomic) SelectedStockDataModel *selectedStockDataModel;
 @property (strong, nonatomic) NSMutableArray *stockDataInRealTime;
 
-@property (strong, nonatomic) stockTradeViewController *stockTradeViewController;
+@property (strong, nonatomic) StockTradeViewController *stockTradeViewController;
 @property (strong, nonatomic) DataModel *dataModel;
 
 
 @end
 
-@implementation selectedStockViewController{
+@implementation SelectedStockViewController{
     BOOL _selectedStockIsLoading;
     NSOperationQueue *_queue;
     int sectionNumber;
@@ -171,10 +171,10 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
         [self.stockDataInRealTime sortUsingSelector:@selector(compareName:)];
 //        [tempArray sortedArrayHint];
         if (indexPath.section==0) {
-            tabTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tabCellIdentifier forIndexPath:indexPath];
+            TabTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tabCellIdentifier forIndexPath:indexPath];
             return cell;
         }else if(indexPath.section==1){
-            selectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+            SelectedStockTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
             SelectedStock *selectedStock=self.stockDataInRealTime[indexPath.row];
             cell.name.text=selectedStock.name;
             cell.code.text=selectedStock.code;
@@ -458,7 +458,7 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"addSelectedStock"]) {
         UINavigationController *navigationController=segue.destinationViewController;//新的视图控制器可以在segue.destinationViewController中找到
-        addStockViewController *controller=(addStockViewController *)navigationController.topViewController;//为了获取addStockViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
+        AddStockViewController *controller=(AddStockViewController *)navigationController.topViewController;//为了获取addStockViewController对象，我们可以查看导航控制器的topViewController属性，该属性指向导航控制器的当前活跃界面
         controller.delegate=self;//一旦我们获得了到addStockViewController对象的引用，就需要将delegate属性设置为self(这样在addStockViewController中的self.delegate才是stockTradeViewController)，而self指的是stockTradeViewController
         controller.selectedStock=sender;
         
@@ -466,13 +466,13 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
 }
 
 #pragma mark 代理方法
-- (void)addStockViewControllerDidCancel:(addStockViewController *)controller{
+- (void)addStockViewControllerDidCancel:(AddStockViewController *)controller{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-- (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata{
+- (void)addStockViewController:(AddStockViewController *)controller didFinishAddingStockData:(StockData *)stockdata{
     [self.dataModel.Data insertObject:stockdata atIndex:0];
     [self.dataModel saveData];
 //    [self performSegueWithIdentifier:@"showTrade" sender:self];

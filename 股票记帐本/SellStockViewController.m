@@ -6,18 +6,18 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "sellStockViewController.h"
-#import "stockData.h"
+#import "SellStockViewController.h"
+#import "StockData.h"
 #import "DataModel.h"
 
 
-@interface sellStockViewController ()
+@interface SellStockViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
 
-@implementation sellStockViewController{
+@implementation SellStockViewController{
     NSInteger _mountOfBuy;
      
    

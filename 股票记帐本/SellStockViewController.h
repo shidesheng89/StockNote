@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class sellStockViewController;
-@class stockData;
+@class SellStockViewController;
+@class StockData;
 @class DataModel;
 
 @protocol sellStockViewControllerDelegate <NSObject>
 
-- (void)sellStockViewController:(sellStockViewController *)controller didFinishAddingSellStock:(stockData*)stockdata;
+- (void)sellStockViewController:(SellStockViewController *)controller didFinishAddingSellStock:(StockData*)stockdata;
 
 @end
 
-@interface sellStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SellStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 - (IBAction)Done:(id)sender;
@@ -28,6 +28,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSell;
 @property (weak, nonatomic) IBOutlet UITextField *priceOfSell;
 @property (weak, nonatomic) IBOutlet UITextField *feeOfSell;
-@property (strong,nonatomic) stockData *stockdata;
+@property (strong,nonatomic) StockData *stockdata;
 @property (strong,nonatomic) DataModel *dataModel;
 @end

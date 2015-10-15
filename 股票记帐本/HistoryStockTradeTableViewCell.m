@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "historyStockTradeTableViewCell.h"
+#import "HistoryStockTradeTableViewCell.h"
 
-@implementation historyStockTradeTableViewCell
+@implementation HistoryStockTradeTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "historyDataModel.h"
-#import "stockData.h"
+#import "HistoryDataModel.h"
+#import "StockData.h"
 
 
-@interface historyTradeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating>
+@interface HistoryTradeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating>
 
-@property (strong, nonatomic) historyDataModel *historyDataModel;
+@property (strong, nonatomic) HistoryDataModel *historyDataModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *historyTableView;
 //@property (strong, nonatomic) stockData *stockData;

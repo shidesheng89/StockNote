@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface selectedStockTableViewCell : UITableViewCell
+@interface SelectedStockTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *code;
 @property (weak, nonatomic) IBOutlet UILabel *price;

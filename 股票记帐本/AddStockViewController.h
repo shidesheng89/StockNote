@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-@class addStockViewController;//只是通知代理协议addStockViewController对象的存在，与＃import不同
-@class stockTradeTableViewCell;//只是通知代理协议addStockViewController对象的存在，与＃import不同
-@class stockData;
+@class AddStockViewController;//只是通知代理协议addStockViewController对象的存在，与＃import不同
+@class StockTradeTableViewCell;//只是通知代理协议addStockViewController对象的存在，与＃import不同
+@class StockData;
 @class SelectedStock;
 
 @protocol addStockViewControllerDelegate <NSObject>
 
-- (void)addStockViewControllerDidCancel:(addStockViewController *)controller;
-- (void)addStockViewController:(addStockViewController *)controller didFinishAddingStockData:(stockData *)stockdata;
+- (void)addStockViewControllerDidCancel:(AddStockViewController *)controller;
+- (void)addStockViewController:(AddStockViewController *)controller didFinishAddingStockData:(StockData *)stockdata;
 
 @end
 
-@interface addStockViewController : UIViewController
+@interface AddStockViewController : UIViewController
 
 @property (weak, nonatomic)id<addStockViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *nameOfStock;

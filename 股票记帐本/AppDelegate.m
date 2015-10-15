@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "stockTradeViewController.h"
+#import "StockTradeViewController.h"
 #import "DataModel.h"
-#import "historyTradeViewController.h"
+#import "HistoryTradeViewController.h"
 @interface AppDelegate ()
 
 @end

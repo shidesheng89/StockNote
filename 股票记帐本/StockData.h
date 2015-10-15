@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface stockData : NSObject<NSCoding>
+@interface StockData : NSObject<NSCoding>
 
 @property (copy, nonatomic) NSString *nameOfStock;
 @property (copy, nonatomic) NSString *timeOfDeal;

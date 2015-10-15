@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface historyDataModel : NSObject
+@interface HistoryDataModel : NSObject
 @property (strong, nonatomic) NSMutableArray *historyData;
 - (void) saveHistoryData;
 @end

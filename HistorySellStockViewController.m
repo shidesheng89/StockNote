@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "historySellStockViewController.h"
+#import "HistorySellStockViewController.h"
 
-@interface historySellStockViewController ()
+@interface HistorySellStockViewController ()
 
 @end
 
-@implementation historySellStockViewController
+@implementation HistorySellStockViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

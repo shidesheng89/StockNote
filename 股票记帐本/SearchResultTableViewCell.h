@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "selectedStockViewController.h"
+#import "SelectedStockViewController.h"
 
 @interface SearchResultTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *code;
-@property (strong, nonatomic)selectedStockViewController *StockViewController;
+@property (strong, nonatomic)SelectedStockViewController *StockViewController;
 
 @property (weak, nonatomic) IBOutlet UIButton *addSelectedStockButton;
 

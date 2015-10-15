@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "historyDataModel.h"
+#import "HistoryDataModel.h"
 
-@implementation historyDataModel
+@implementation HistoryDataModel
 -(id)init{
     //当应用从storyboard中加在视图控制器时，uikit将会自动触发该方法
     if ((self=[super init])) {

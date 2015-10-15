@@ -6,17 +6,17 @@
 //  Copyright (c) 2015年 施德胜. All rights reserved.
 //
 
-#import "addStockViewController.h"
-#import "stockTradeTableViewCell.h"
-#import "stockData.h"
+#import "AddStockViewController.h"
+#import "StockTradeTableViewCell.h"
+#import "StockData.h"
 #import "SelectedStock.h"
 
-@interface addStockViewController ()
+@interface AddStockViewController ()
 
 
 @end
 
-@implementation addStockViewController
+@implementation AddStockViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +54,7 @@
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yy年MM月dd日"];
     
-    stockData *stockdata=[[stockData alloc]init];
+    StockData *stockdata=[[StockData alloc]init];
     stockdata.nameOfStock=self.nameOfStock.text;
     stockdata.buyNumber=self.buyNumber.text;
     stockdata.buyFee=self.buyFee.text;

@@ -10,7 +10,7 @@
         <!--Item-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="stockTradeViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="StockTradeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -104,7 +104,7 @@
         <!--History Sell Stock View Controller-->
         <scene sceneID="ltS-10-rhD">
             <objects>
-                <viewController id="BHc-Wf-hZx" customClass="historySellStockViewController" sceneMemberID="viewController">
+                <viewController id="BHc-Wf-hZx" customClass="HistorySellStockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dl4-7N-gol"/>
                         <viewControllerLayoutGuide type="bottom" id="Lhp-xS-Qcg"/>
@@ -140,7 +140,7 @@
         <!--Add Stock View Controller-->
         <scene sceneID="XAP-Tb-4i8">
             <objects>
-                <viewController id="97O-PE-XYR" customClass="addStockViewController" sceneMemberID="viewController">
+                <viewController id="97O-PE-XYR" customClass="AddStockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N0d-Tt-kok"/>
                         <viewControllerLayoutGuide type="bottom" id="sCJ-O2-rEJ"/>
@@ -244,7 +244,7 @@
         <!--History Trade View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="historyTradeViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="HistoryTradeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -346,7 +346,7 @@
         <!--Selected Stock View Controller-->
         <scene sceneID="qOY-cc-0Q2">
             <objects>
-                <viewController id="oR8-c7-AYu" customClass="selectedStockViewController" sceneMemberID="viewController">
+                <viewController id="oR8-c7-AYu" customClass="SelectedStockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y2H-Hr-RYd"/>
                         <viewControllerLayoutGuide type="bottom" id="5j3-4r-545"/>
@@ -446,7 +446,7 @@
         <!--Sell Stock View Controller-->
         <scene sceneID="RkV-2a-m5X">
             <objects>
-                <viewController id="MD9-wr-Z54" customClass="sellStockViewController" sceneMemberID="viewController">
+                <viewController id="MD9-wr-Z54" customClass="SellStockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xK6-g4-fjl"/>
                         <viewControllerLayoutGuide type="bottom" id="6sa-OP-dbQ"/>
@@ -579,7 +579,7 @@
         <!--Add Stock View Controller-->
         <scene sceneID="zc0-Ma-VhR">
             <objects>
-                <viewController id="Q4O-rE-KTU" customClass="addStockViewController" sceneMemberID="viewController">
+                <viewController id="Q4O-rE-KTU" customClass="AddStockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kSm-Uo-fa5"/>
                         <viewControllerLayoutGuide type="bottom" id="Yma-Yt-Krv"/>

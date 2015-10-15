@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "stockData.h"
-@interface historySellStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "StockData.h"
+@interface HistorySellStockViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic)stockData *stockdata;
+@property (strong, nonatomic)StockData *stockdata;
 @end

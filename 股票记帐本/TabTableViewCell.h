@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface tabTableViewCell : UITableViewCell
+@interface TabTableViewCell : UITableViewCell
 
 @end

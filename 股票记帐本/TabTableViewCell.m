@@ -1,14 +1,14 @@
 //
-//  stockTradeTableViewCell.m
+//  tabTableViewCell.m
 //  股票记帐本
 //
-//  Created by 施德胜 on 15/9/1.
-//  Copyright (c) 2015年 施德胜. All rights reserved.
+//  Created by 施德胜 on 15/10/10.
+//  Copyright © 2015年 施德胜. All rights reserved.
 //
 
-#import "stockTradeTableViewCell.h"
+#import "TabTableViewCell.h"
 
-@implementation stockTradeTableViewCell
+@implementation TabTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
