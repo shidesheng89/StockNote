@@ -40,7 +40,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     [super viewDidLoad];
     UITableView *tableView=(id)[self.view viewWithTag:1];
     tableView.rowHeight=80;
-    UINib *nib=[UINib nibWithNibName:@"stockTradeTableViewCell" bundle:nil];
+    UINib *nib=[UINib nibWithNibName:@"StockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     self.title=@"交 易";
     

@@ -81,9 +81,9 @@ static NSString *searchCellIdentifier=@"searchCellIdentifier";
     _queue = [[NSOperationQueue alloc] init];//AFNetworking线程初始化
     [self getAllNameAndCode];
     self.tableView.rowHeight=44;
-    UINib *tabNib=[UINib nibWithNibName:@"tabTableViewCell" bundle:nil];
+    UINib *tabNib=[UINib nibWithNibName:@"TabTableViewCell" bundle:nil];
     [self.tableView registerNib:tabNib forCellReuseIdentifier:tabCellIdentifier];
-    UINib *nib=[UINib nibWithNibName:@"selectedStockTableViewCell" bundle:nil];
+    UINib *nib=[UINib nibWithNibName:@"SelectedStockTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     UINib *searchResultsnib=[UINib nibWithNibName:@"SearchResultTableViewCell" bundle:nil];
     [self.tableView registerNib:searchResultsnib forCellReuseIdentifier:searchCellIdentifier];

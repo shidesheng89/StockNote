@@ -34,7 +34,7 @@ static NSString *cellIdentifier=@"stockTradeTableViewCell";
     
     UITableView *tableView=(id)[self.view viewWithTag:100];
     tableView.rowHeight=80;
-    UINib *nib=[UINib nibWithNibName:@"historyStockTradeTableViewCell" bundle:nil];
+    UINib *nib=[UINib nibWithNibName:@"HistoryStockTradeTableViewCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
     
